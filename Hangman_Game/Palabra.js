@@ -5,7 +5,7 @@ class Palabra{
     palabraSeleccionada = "";
     cantidadLetras = 0;
 
-    palabra(){
+    constructor(){
        this.palabraSeleccionada = elegirPalabra();
        this.cantidadLetras = this.palabraSeleccionada.length();
     }
@@ -28,7 +28,6 @@ class Palabra{
     getCantidadLetras(){
         return this.cantidadLetras;
     }
-
    
-    
 }
+export default Palabra;
