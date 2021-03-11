@@ -1,5 +1,5 @@
 import elementoHTML from './ElementoHTMLBuilder.js';
-const palabra = "nurse"
+const palabra = "nurse";
 
 function crearFormulario(cantidadLetras){
     
