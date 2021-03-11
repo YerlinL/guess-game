@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel = stylesheet
+    href = "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css">
+</head>
+
+<body id = "body" style =  "text-align: center; background-color: #5ae4ba96;"  >  
+    
+    <form class = "p-4" id = "formularioJuego"style=" text-align: center;" > 
+        <div class="card mx-auto" style="text-align: center; border-color:white; 
+          border-width: thick; max-width: 50rem; background-image: url('../backgroundSchool.png');"> 
+            <div class="card-body" > 
+              <h4 class="card-title" style="color: white;">Can you guess who this is?</h4>
+              <img src='../guess.png' class="card-img-top" style="height: 200px; width: 200px; text-align: center;">
+              <div class = "p-4" id =  "input"></div>
+              <div class = "p-4" id =  "abecedario"></div>
+            </div>
+          </div>   
+    </form>
+   
+    <script type = "module" src = "../Formulario.js" defer></script>   
+</body>
+</html>
