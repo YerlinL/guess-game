@@ -6,8 +6,8 @@ class Palabra{
     cantidadLetras = 0;
 
     constructor(){
-       this.palabraSeleccionada = elegirPalabra();
-       this.cantidadLetras = this.palabraSeleccionada.length();
+       this.palabraSeleccionada = this.elegirPalabra();
+       this.cantidadLetras = this.palabraSeleccionada.length;
     }
 
     elegirPalabra(){
@@ -16,7 +16,7 @@ class Palabra{
     }
     
     generarNumeroAleatorio(){
-        let longitudVector = VECTOROCUPACIONES.length();
+        let longitudVector = VECTOROCUPACIONES.length;
         let aleatorio= Math.floor(Math.random()*longitudVector);
         return aleatorio;
     }
