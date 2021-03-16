@@ -6,12 +6,17 @@ import objetoPalabra from './Palabra.js';
    const palabra = new objetoPalabra();
    var palabraSeleccionada;
 
-   function constructor(){
+    function constructor(){
        palabraSeleccionada = palabra.getPalabra();
        let cantidadLetras = palabra.getCantidadLetras();
        crearFormulario(cantidadLetras);
        generarAbecedario();
    }
+
+    function continuarJugando(){
+        
+    }
+
 
     function crearFormulario(cantidadLetras){ 
         let formulario = document.getElementById("input");
