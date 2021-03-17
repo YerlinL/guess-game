@@ -3,19 +3,24 @@ import objetoPalabra from './Palabra.js';
 
 
 
-   const palabra = new objetoPalabra();
-   var palabraSeleccionada;
-
+    const palabra = new objetoPalabra();
+    var palabraSeleccionada;
+    var cantidadLetrasClickeadas=0;
+    let cantidadLetrasPalabraSeleccionada = 0;
+    
     function constructor(){
-       palabraSeleccionada = palabra.getPalabra();
-       let cantidadLetras = palabra.getCantidadLetras();
-       crearFormulario(cantidadLetras);
-       generarAbecedario();
-   }
-
-    function continuarJugando(){
+        generarAbecedario();
+        jugar();
+        
         
     }
+
+    function jugar(){
+       palabraSeleccionada = palabra.getPalabra();
+       cantidadLetrasPalabraSeleccionada = palabra.getCantidadLetras();
+       crearFormulario(cantidadLetrasPalabraSeleccionada);
+       
+   }
 
 
     function crearFormulario(cantidadLetras){ 
@@ -24,7 +29,7 @@ import objetoPalabra from './Palabra.js';
         const ancho = '50px';
         const colorFondo = 'snow';
     
-        for(let cantidadCuadrosTexto= 0; cantidadCuadrosTexto < cantidadLetras; ++cantidadCuadrosTexto){
+        for(let cantidadCuadrosTexto= 0; cantidadCuadrosTexto < cantidadLetrasPalabraSeleccionada; ++cantidadCuadrosTexto){
     
             let elementoNuevo = document.createElement('input');
             const elemento = new elementoHTML(elementoNuevo)
@@ -64,16 +69,42 @@ import objetoPalabra from './Palabra.js';
                             .establecerColorBorde(colorBorde);
             const botonNuevo  = boton.obtenerElemento(); 
             botonNuevo.innerText= letraCreada;
-            botonNuevo.onclick = function() {mostarLetraEnCuadroTexto(botonNuevo)};
+            botonNuevo.onclick = function() {puedeSeguirJugando(botonNuevo)};
             formulario.appendChild(botonNuevo);
             formulario.appendChild(espacio);
             
         }
      
     }
+   
+    function puedeSeguirJugando(boton){
+        cantidadLetrasClickeadas+=1;   
+        if(cantidadLetrasClickeadas<=cantidadLetrasPalabraSeleccionada){
+            boton.setAttribute("class", "btn btn-info disabled");
+            mostarLetraEnCuadroTexto(boton);
+        }else{
+            if(confirm("Do you want to play again")){
+                reactivarBotonesAbecedario();
+                cantidadLetrasClickeadas = 0;
+                jugar();
+            }else{
+                alert("Thank you")
+            }
+        }
+       
+    }
 
+    function reactivarBotonesAbecedario(){
+        var vectorBotonesDesactivados = document.getElementsByClassName("btn btn-info disabled");
+        let cantidadBotonesDesactivados = vectorBotonesDesactivados.length
+        let contadorBotonesReactivados = 0;
+        let indice =0;
+        while(contadorBotonesReactivados < cantidadBotonesDesactivados) {
+            vectorBotonesDesactivados[indice].setAttribute("class", "btn btn-info");
+       }
+    }
     function mostarLetraEnCuadroTexto(boton){
-        boton.setAttribute("class", "btn btn-info disabled");
+        
         let letraBuscada = boton.innerText;
         let posicion = buscarPosicionLetra(letraBuscada);
         if(posicion!==-1){
