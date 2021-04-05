@@ -16,10 +16,31 @@
             <div class="card-body" > 
               <h4 class="card-title" style="color: white;">Can you guess who this is?</h4>
               <img src='../guess.png' class="card-img-top" style="height: 200px; width: 200px; text-align: center;">
+              <div class="modal" id = "ModalJuego">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
               <div class = "p-4" id =  "input"></div>
               <div class = "p-4" id =  "abecedario"></div>
-            </div>
+              
           </div>   
+          
     </form>
    
     <script type = "module" src = "../Formulario.js" defer></script>   

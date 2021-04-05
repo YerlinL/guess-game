@@ -3,6 +3,7 @@ import objetoPalabra from './Palabra.js';
 
 
 
+
     const palabra = new objetoPalabra();
     var palabraSeleccionada;
     var cantidadLetrasClickeadas=0;
@@ -38,6 +39,7 @@ import objetoPalabra from './Palabra.js';
                             .establecerColorFondo(colorFondo)
                             .establecerID(cantidadCuadrosTexto.toString());
             let input = elemento.obtenerElemento();
+           
             formulario.appendChild(input);
            
         }      
@@ -69,21 +71,35 @@ import objetoPalabra from './Palabra.js';
                             .establecerColorBorde(colorBorde);
             const botonNuevo  = boton.obtenerElemento(); 
             botonNuevo.innerText= letraCreada;
-            botonNuevo.onclick = function() {puedeSeguirJugando(botonNuevo)};
+            botonNuevo.onclick = function() {seguirJugando(botonNuevo)};
             formulario.appendChild(botonNuevo);
             formulario.appendChild(espacio);
             
         }
      
     }
-   
-    function puedeSeguirJugando(boton){
-        cantidadLetrasClickeadas+=1;   
-        if(cantidadLetrasClickeadas<=cantidadLetrasPalabraSeleccionada){
-            boton.setAttribute("class", "btn btn-info disabled");
-            mostarLetraEnCuadroTexto(boton);
-        }else{
-            if(confirm("Do you want to play again")){
+   function seguirJugando(boton){
+    cantidadLetrasClickeadas+=1; 
+    if( puedeSeguirJugando()){
+        boton.setAttribute("class", "btn btn-info disabled");
+        mostarLetraEnCuadroTexto(boton);
+        
+    }  
+    if(cantidadLetrasClickeadas==cantidadLetrasPalabraSeleccionada){
+        document.getElementById("ModalJuego").style.display = "block"
+        document.getElementById("ModalJuego").className += "show"
+    }  
+   }
+    // function puedeSeguirJugando(boton){
+    //      seguirJugando(boton);
+    //      gano();
+    //      perdio();
+       
+    // }
+
+    function gano(){
+        if(cantidadLetrasClickeadas<=cantidadLetrasPalabraSeleccionada && adivinoLaPalabra()){
+            if(confirm("¡You won Great Job! Do you want to play again")){
                 reactivarBotonesAbecedario();
                 cantidadLetrasClickeadas = 0;
                 jugar();
@@ -91,7 +107,18 @@ import objetoPalabra from './Palabra.js';
                 alert("Thank you")
             }
         }
-       
+    }
+
+    function perdio(){
+        if(cantidadLetrasClickeadas==cantidadLetrasPalabraSeleccionada && !adivinoLaPalabra()){
+            if(confirm("¡Sorry you lost! Do you want to play again")){
+                reactivarBotonesAbecedario();
+                cantidadLetrasClickeadas = 0;
+                jugar();
+            }else{
+                alert("Thank you")
+            }
+        }
     }
 
     function reactivarBotonesAbecedario(){
@@ -106,17 +133,38 @@ import objetoPalabra from './Palabra.js';
     function mostarLetraEnCuadroTexto(boton){
         
         let letraBuscada = boton.innerText;
-        let posicion = buscarPosicionLetra(letraBuscada);
-        if(posicion!==-1){
+        let posicion = buscarPosicionLetra(letraBuscada,0);
+        while(posicion!==-1){
             let cuadroTexto = document.getElementById(posicion.toString());
             cuadroTexto.value = letraBuscada;
+            let siguientePosicion= posicion + 1;
+            posicion = buscarPosicionLetra(letraBuscada,siguientePosicion);
         }
     }
     
-    function buscarPosicionLetra(letraBuscada) {
-        let posicion = palabraSeleccionada.indexOf(letraBuscada);
+    function buscarPosicionLetra(letraBuscada, posicionInicio) {
+        let posicion = palabraSeleccionada.indexOf(letraBuscada, posicionInicio);
         return posicion;
     }
+
+    function puedeSeguirJugando(){
+        return cantidadLetrasClickeadas<=cantidadLetrasPalabraSeleccionada && !adivinoLaPalabra(); 
+    }
+    function adivinoLaPalabra(){
+        return  obtenerCantidadEntradasVacias() == 0;
+    }
+    
+    function obtenerCantidadEntradasVacias(){
+        let todasEntradas = document.getElementsByTagName("input");
+        let cantidadEntradasVacias = 0;
+        for(let entrada=0;entrada<todasEntradas.length;++entrada)
+            if(todasEntradas[entrada].value == ""){
+                cantidadEntradasVacias+=1;
+            }
+        return cantidadEntradasVacias;
+    }
+
+    
 
     constructor();
 
