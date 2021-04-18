@@ -4,7 +4,7 @@
   "description": "",
   "main": "Hangman_Game/Juego.js",
   "scripts": {
-    "start": "electron Hangman_Game/Juego.js"
+    "start": "electron Hangman_Game/Main.js"
   },
   "keywords": [],
   "author": "",
