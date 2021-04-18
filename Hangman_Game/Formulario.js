@@ -79,48 +79,46 @@ import objetoPalabra from './Palabra.js';
      
     }
    function seguirJugando(boton){
-    cantidadLetrasClickeadas+=1; 
-    if( puedeSeguirJugando()){
-        boton.setAttribute("class", "btn btn-info disabled");
-        mostarLetraEnCuadroTexto(boton);
-        
-    }  
-    if(cantidadLetrasClickeadas==cantidadLetrasPalabraSeleccionada){
-        document.getElementById("ModalJuego").style.display = "block"
-        document.getElementById("ModalJuego").className += "show"
-    }  
+       let mensaje = "";
+        cantidadLetrasClickeadas+=1; 
+        if( puedeSeguirJugando()){
+            boton.setAttribute("class", "btn btn-info disabled");
+            mostarLetraEnCuadroTexto(boton);
+            
+        }  
+        if(gano() || perdio()){
+            if(gano()){
+                mensaje = "Great Job"
+            }else{
+                if(perdio()){
+                    mensaje = "Sorry Good Luck Next Time"
+                }
+            } 
+           setTimeout(quiereContinuarJugando, 1000,mensaje);
+        }
+
+        //setTimeout(determinarGanoPerdio,500);      
    }
-    // function puedeSeguirJugando(boton){
-    //      seguirJugando(boton);
-    //      gano();
-    //      perdio();
-       
-    // }
+   
 
     function gano(){
-        if(cantidadLetrasClickeadas<=cantidadLetrasPalabraSeleccionada && adivinoLaPalabra()){
-            if(confirm("¡You won Great Job! Do you want to play again")){
-                reactivarBotonesAbecedario();
-                cantidadLetrasClickeadas = 0;
-                jugar();
-            }else{
-                alert("Thank you")
-            }
-        }
+        return quedanTurnos() && adivinoLaPalabra();
     }
 
     function perdio(){
-        if(cantidadLetrasClickeadas==cantidadLetrasPalabraSeleccionada && !adivinoLaPalabra()){
-            if(confirm("¡Sorry you lost! Do you want to play again")){
-                reactivarBotonesAbecedario();
-                cantidadLetrasClickeadas = 0;
-                jugar();
-            }else{
-                alert("Thank you")
-            }
-        }
+        return esUltimoTurno() && !adivinoLaPalabra();
     }
 
+    function quiereContinuarJugando(mensaje){
+        let quiereJugar = "Do you want to play again?"
+        if(confirm(mensaje+ quiereJugar)){
+            reactivarBotonesAbecedario();
+            cantidadLetrasClickeadas = 0;
+            jugar();
+        }else{
+            alert("Thanks");
+        }
+    }
     function reactivarBotonesAbecedario(){
         var vectorBotonesDesactivados = document.getElementsByClassName("btn btn-info disabled");
         let cantidadBotonesDesactivados = vectorBotonesDesactivados.length
@@ -128,6 +126,7 @@ import objetoPalabra from './Palabra.js';
         let indice =0;
         while(contadorBotonesReactivados < cantidadBotonesDesactivados) {
             vectorBotonesDesactivados[indice].setAttribute("class", "btn btn-info");
+            ++contadorBotonesReactivados;
        }
     }
     function mostarLetraEnCuadroTexto(boton){
@@ -148,10 +147,19 @@ import objetoPalabra from './Palabra.js';
     }
 
     function puedeSeguirJugando(){
-        return cantidadLetrasClickeadas<=cantidadLetrasPalabraSeleccionada && !adivinoLaPalabra(); 
+        return quedanTurnos() && !adivinoLaPalabra(); 
     }
+
+    function quedanTurnos(){
+        return cantidadLetrasClickeadas<=cantidadLetrasPalabraSeleccionada;
+    }
+
     function adivinoLaPalabra(){
         return  obtenerCantidadEntradasVacias() == 0;
+    }
+
+    function esUltimoTurno(){
+        return cantidadLetrasClickeadas==cantidadLetrasPalabraSeleccionada;
     }
     
     function obtenerCantidadEntradasVacias(){
