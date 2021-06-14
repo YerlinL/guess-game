@@ -1,12 +1,19 @@
 import elementoHTML from './ElementoHTMLBuilder.js';
-import estado from './EstadoJuego.js'
+import juego from './Juego.js'
     
    var cantidadLetrasPalabraSeleccionada = 0;
-    function agregarElementosVentana(cantidadLetras){
-        alert(cantidadLetras);
-        cantidadLetrasPalabraSeleccionada = cantidadLetras;
+    function agregarElementosFormulario(){
+        juego.constructor()//toDp cambiar nombre
+        cantidadLetrasPalabraSeleccionada = juego.getCantidadLetras();
+        alert(cantidadLetrasPalabraSeleccionada);
         crearFormulario(cantidadLetrasPalabraSeleccionada);
-        generarAbecedario();      
+            
+    }
+    function constructor(){
+        juego.llenarVectorPalabrasUsadas();
+        alert("Ya se lleno el vector");
+        generarAbecedario();  
+        agregarElementosFormulario();
     }
     
     function crearFormulario(cantidadLetras){ 
@@ -56,15 +63,27 @@ import estado from './EstadoJuego.js'
                             .establecerColorBorde(colorBorde);
             const botonNuevo  = boton.obtenerElemento(); 
             botonNuevo.innerText= letraCreada;
-            botonNuevo.onclick = function() {estado.seguirJugando(botonNuevo)};
+            botonNuevo.onclick = async function() {await prueba(botonNuevo)};
             formulario.appendChild(botonNuevo);
             formulario.appendChild(espacio);
             
         }
      
     }
- 
- export default agregarElementosVentana;
+    async function prueba(botonNuevo){
+       await juego.seguirJugando(botonNuevo);
+        
+       if(!juego.puedeSeguirJugando()){
+            if(true){
+                agregarElementosFormulario();
+                juego.setCantidadLetrasClickeadas(0);
+            }
+              
 
+        }
+
+    }
+
+constructor();
 
 
