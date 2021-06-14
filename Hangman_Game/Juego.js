@@ -1,72 +1,9 @@
-  const util = require('util');
-
-   const VECTOROCUPACIONES = ["baker", "butcher", "salesman", "saleswoman", "cashier", 
-    "hair dresser", "mechanic", "chef", "farmer", "waiter", "waitress"];
+const { wait } = require('./Utils/index')
+const VECTOR_OCUPACIONES = ["baker", "butcher", "salesman", "saleswoman", "cashier", 
+"hair dresser", "mechanic", "chef", "farmer", "waiter", "waitress"];
     
-    var palabraSeleccionada = "";
-    var cantidadLetras = 0;
-    var vectorPalabrasUsadas = [];
-    var longitudVector =  VECTOROCUPACIONES.length;
-    var cantidadLetrasClickeadas = 0;
-    var quiereVolverJugar = false;
-    vectorPalabrasUsadas.fill(false);
-
-    function constructor(){
-        vectorPalabrasUsadas.length = longitudVector;
-        palabraSeleccionada = elegirPalabra();
-        cantidadLetras = palabraSeleccionada.length;
-        alert(palabraSeleccionada);
-     }
      
-    function llenarVectorPalabrasUsadas(){
-        //vectorPalabrasUsadas.fill(false);
-        for(let i =0; i < vectorPalabrasUsadas.length; ++i ){
-             vectorPalabrasUsadas[i] = false;
-             alert(vector[i]);
-         }
-    }
-    function elegirPalabra(){
-         let posicionPalabra = generarNumeroAleatorio(); 
-         let contador = 0;
-         let palabraElegida = "";
-         alert("Antes del while");
-         alert("La posicion elegida es "+ posicionPalabra);
-         console.log("posicion de la palabr "+posicionPalabra);
-         while(vectorPalabrasUsadas[posicionPalabra]!=false && contador < longitudVector){
-            alert(vectorPalabrasUsadas[posicionPalabra]); 
-            posicionPalabra = generarNumeroAleatorio();
-             ++contador;
-             alert("Estoy en el while de elegir palabra");
-         }
-         if(contador < longitudVector){
-             alert("Estoy en el if de elegir palabra");
-             palabraElegida = VECTOROCUPACIONES[posicionPalabra];
-             vectorPalabrasUsadas[posicionPalabra] = true;
-             contador = 0;
-             console.log("posicion de la palabr "+posicionPalabra);
-             
-         }else{
-             window.alert("All the words was used");
-             vectorPalabrasUsadas.fill(false);
-             alert("Estoy en el else de elegir palabra");
-         }
-         for(let i =0; i < vectorPalabrasUsadas.length; ++i ){
-            alert("Vector Palabras Usadas "+ vectorPalabrasUsadas[i]);
-         }
-         return palabraElegida;
-     }
- 
-    function generarNumeroAleatorio(){
-         let aleatorio= Math.floor(Math.random()*longitudVector);
-         return aleatorio;
-     }
- 
- 
-    function getCantidadLetras(){
-         return cantidadLetras;
-     }
-
-    async function seguirJugando(boton){
+    function seguirJugando(boton){
         
         let mensaje = "";
          cantidadLetrasClickeadas+=1; 
@@ -76,7 +13,7 @@
              
          }  
          
-        const sleep = time => new Promise(resolve =>setTimeout(resolve,time))
+        
         if(gano() || perdio()){
             if(gano()){
                 console.log("gano")
@@ -87,20 +24,14 @@
                     mensaje = "Sorry Good Luck Next Time"
                 }
             } 
-            console.log("antes de sleep");
-           await sleep(400);
-           console.log("despues de sleep");
+           wait(400);
            quiereContinuarJugando(mensaje);
           
     }
-    
-    async function revisarFinalJuego(){
-        
-        } 
+
+    function gano(){
+        return quedanTurnos() && adivinoLaPalabra();
     }
-     function gano(){
-         return quedanTurnos() && adivinoLaPalabra();
-     }
  
      function perdio(){
          return esUltimoTurno() && !adivinoLaPalabra();
@@ -186,12 +117,9 @@
         }
      }
 
-     function setCantidadLetrasClickeadas(cantidadLetras){
-        cantidadLetrasClickeadas = cantidadLetras
-     }
-
-     function setCantidadLetras(cantidad){
-        cantidadLetras = cantidad;
-     }
-
-export default  {llenarVectorPalabrasUsadas,seguirJugando, constructor, getQuiereVolverJugar, getCantidadLetras, puedeSeguirJugando, setCantidadLetrasClickeadas, setCantidadLetras};
+module.exports = 
+{
+    seguirJugando, 
+    getQuiereVolverJugar,
+    puedeSeguirJugando
+}
