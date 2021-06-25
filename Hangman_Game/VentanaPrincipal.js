@@ -45,18 +45,19 @@
      
     function  crearVentanaPrincipal(){
         ventanaPrincipal = new BrowserWindow({
+          width: 1080,
+          height: 700,
             webPreferences:{
-              
               nodeIntegration: true
 
             },
-            title: "Hangman Game"
+            title: "Guess Game"
            });
     }
     
     function cargarVista(){
         ventanaPrincipal.loadURL(url.format({
-            pathname: path.join(__dirname, 'Views/index.html'),
+            pathname: path.join(__dirname, 'Views/juego.html'),
             protocol: 'file',
             slashes: true
          }));

@@ -1,56 +1,57 @@
 import elementoHTML from './ElementoHTMLBuilder.js';
-import juego from './Juego.js'
+//import juego from './Juego.js'
     
-   var cantidadLetrasPalabraSeleccionada = 0;
-    function agregarElementosFormulario(){
-        juego.constructor()//toDp cambiar nombre
-        cantidadLetrasPalabraSeleccionada = juego.getCantidadLetras();
-        alert(cantidadLetrasPalabraSeleccionada);
-        crearFormulario(cantidadLetrasPalabraSeleccionada);
+//    var cantidadLetrasPalabraSeleccionada = 0;
+//     function agregarElementosFormulario(){
+//         juego.constructor()//toDp cambiar nombre
+//         cantidadLetrasPalabraSeleccionada = juego.getCantidadLetras();
+//         alert(cantidadLetrasPalabraSeleccionada);
+//         crearFormulario(cantidadLetrasPalabraSeleccionada);
             
-    }
+//     }
     function constructor(){
-        juego.llenarVectorPalabrasUsadas();
-        alert("Ya se lleno el vector");
+        /*juego.llenarVectorPalabrasUsadas();
+        alert("Ya se lleno el vector");*/
         generarAbecedario();  
-        agregarElementosFormulario();
+        //agregarElementosFormulario();
+        crearFormulario(10);
     }
     
-    function crearFormulario(cantidadLetras){ 
+    function crearFormulario(cantidadLetrasPalabraSeleccionada){ 
         let formulario = document.getElementById("input");
-        const altura = '50px';
-        const ancho = '50px';
-        const colorFondo = 'snow';
-    
+        const altura = '70px';
+        const ancho = '80px';
+        const desactivado= true;
         for(let cantidadCuadrosTexto= 0; cantidadCuadrosTexto < cantidadLetrasPalabraSeleccionada; ++cantidadCuadrosTexto){
     
             let elementoNuevo = document.createElement('input');
             const elemento = new elementoHTML(elementoNuevo)
                             .establecerAltura(altura)
                             .establecerAncho(ancho)
-                            .establecerColorFondo(colorFondo)
-                            .establecerID(cantidadCuadrosTexto.toString());
+                            .establecerID(cantidadCuadrosTexto.toString())
+                            .establecerEstado(desactivado);
             let input = elemento.obtenerElemento();
            
             formulario.appendChild(input);
            
-        }      
-    
+        }    
+       
     }
     
     function generarAbecedario(){
-        const altura = '50px';
-        const ancho = '50px';
-        const colorFondo = '#4FC3F7';
-        const colorBorde = 'black';
+        const altura = '60px';
+        const ancho = '60px';
+        const colorFondo = '#ff6565';
+        const colorBorde = 'solid 1px #a94a50';
         let a = 97;
         let z = 122;
-        let m = 110;
-        let formulario = document.getElementById("abecedario");
-    
+        let j = 106;
+        let s = 115;
+        let abecedario = document.getElementById("abecedario");
+        let espacio = document.createTextNode("\u00a0");
+        
         for (let letra = a; letra <= z; ++letra){
-         
-            let espacio = document.createTextNode("\u00a0");
+                 
             let elementoNuevo = document.createElement('button');
             let letraCreada = String.fromCharCode(letra);
             const boton = new elementoHTML(elementoNuevo)
@@ -63,26 +64,36 @@ import juego from './Juego.js'
                             .establecerColorBorde(colorBorde);
             const botonNuevo  = boton.obtenerElemento(); 
             botonNuevo.innerText= letraCreada;
-            botonNuevo.onclick = async function() {await prueba(botonNuevo)};
-            formulario.appendChild(botonNuevo);
-            formulario.appendChild(espacio);
+            //botonNuevo.onclick = async function() {await prueba(botonNuevo)};
+            abecedario.appendChild(botonNuevo);
+            abecedario.appendChild(espacio);
+           
+            if(letra===j || letra===s){
+                agregarCambioLinea(abecedario);
+                
+            }
             
         }
      
     }
-    async function prueba(botonNuevo){
-       await juego.seguirJugando(botonNuevo);
+
+    function agregarCambioLinea(elemento){
+        let cambioLinea = document.createElement("br");
+        elemento.appendChild(cambioLinea);
+    }
+    // async function prueba(botonNuevo){
+    //    await juego.seguirJugando(botonNuevo);
         
-       if(!juego.puedeSeguirJugando()){
-            if(true){
-                agregarElementosFormulario();
-                juego.setCantidadLetrasClickeadas(0);
-            }
+    //    if(!juego.puedeSeguirJugando()){
+    //         if(true){
+    //             agregarElementosFormulario();
+    //             juego.setCantidadLetrasClickeadas(0);
+    //         }
               
 
-        }
+    //     }
 
-    }
+    // }
 
 constructor();
 

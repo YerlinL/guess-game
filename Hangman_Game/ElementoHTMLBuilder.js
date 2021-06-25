@@ -53,6 +53,13 @@ class ElementoHTMLBuilder extends elementoHTML{
         this.establecerElemento(elemento);
         return this;
     }
+    
+    establecerEstado(estado){
+        let elemento = this.obtenerElemento();
+        elemento.disabled = estado;
+        this.establecerElemento(elemento);
+        return this;
+    }
 
     obtenerElemento(){
         return super.obtenerElemento();
