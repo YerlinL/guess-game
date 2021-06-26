@@ -19,8 +19,8 @@ import elementoHTML from './ElementoHTMLBuilder.js';
     
     function crearFormulario(cantidadLetrasPalabraSeleccionada){ 
         let formulario = document.getElementById("input");
-        const altura = '70px';
-        const ancho = '80px';
+        const altura = '50px';
+        const ancho = '50px';
         const desactivado= true;
         for(let cantidadCuadrosTexto= 0; cantidadCuadrosTexto < cantidadLetrasPalabraSeleccionada; ++cantidadCuadrosTexto){
     
@@ -39,14 +39,15 @@ import elementoHTML from './ElementoHTMLBuilder.js';
     }
     
     function generarAbecedario(){
-        const altura = '60px';
+        const altura = '55px';
         const ancho = '60px';
         const colorFondo = '#ff6565';
         const colorBorde = 'solid 1px #a94a50';
         let a = 97;
         let z = 122;
-        let j = 106;
-        let s = 115;
+        let g = 103;
+        let n = 110;
+        let u = 117;
         let abecedario = document.getElementById("abecedario");
         let espacio = document.createTextNode("\u00a0");
         
@@ -68,7 +69,7 @@ import elementoHTML from './ElementoHTMLBuilder.js';
             abecedario.appendChild(botonNuevo);
             abecedario.appendChild(espacio);
            
-            if(letra===j || letra===s){
+            if(letra===g || letra===n || letra===u ){
                 agregarCambioLinea(abecedario);
                 
             }

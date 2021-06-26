@@ -4,7 +4,7 @@
     height: 600px;
     width: 1000px;
     margin: auto;
-     
+    background-color: #bae0f5;
 }
 body{
     text-align: center; 
@@ -50,3 +50,50 @@ body{
     border-radius: 1.078em;
     border-color: #a94a50;
 }
+
+.container {
+    position: relative;
+    width: 50%;
+  }
+  
+.overlay {
+    margin-left: auto;
+    opacity: 0;
+    transition: .5s ease;
+}
+  
+.container:hover .overlay {
+    opacity: 1;
+}
+  
+.text {
+    color: #2C3E50;
+    font-size: 2px;
+    text-align: left;
+}
+
+.imagesInstruction{
+    
+    text-align: center;
+    background-color: #bae0f5;
+}
+
+.hiddenimg {
+    display: none;
+  }
+    
+.hiddentxt a {
+    color: #2C3E50;
+    text-decoration: none;
+    z-index: 99;
+}
+
+.hiddentxt:hover ~ .hiddenimg {
+    display: block;
+    position: absolute;
+    z-index: 2
+}
+
+
+
+
