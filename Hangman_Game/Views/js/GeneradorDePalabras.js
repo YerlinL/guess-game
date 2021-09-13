@@ -1,4 +1,6 @@
-import { generarNumeroAleatorio } from './Utils/index'
+import Utils from './Utils/index.js'
+
+const { generarNumeroAleatorio } = Utils
 
 class GeneradorDePalabras {
 
@@ -19,21 +21,21 @@ class GeneradorDePalabras {
     }
 
     elegirPalabra(){
-        let palabraGenerada = PALABRA_EN_BLANCO;
+        let palabraGenerada = this.PALABRA_EN_BLANCO;
         let fueUtilizada = false;
         do{
             palabraGenerada =  this.#generarPalabraAletoria();
             fueUtilizada = this.esPalabraUsada.get(palabraGenerada);
         }while(fueUtilizada && this.#existenPalabrasSinUsar());
 
-        if(esPalabraValida(palabraGenerada)){
-            this.esPalabraUsada[palabraGenerada] = USADA;
+        if(this.#esPalabraValida(palabraGenerada)){
+            this.esPalabraUsada[palabraGenerada] = this.USADA;
         }
         return palabraGenerada;
     }
 
-    esPalabraValida(palabra){
-        return palabra !==PALABRA_EN_BLANCO;
+    #esPalabraValida(palabra){
+        return palabra !==this.PALABRA_EN_BLANCO;
     }
 
     #generarPalabraAletoria(){
@@ -44,7 +46,7 @@ class GeneradorDePalabras {
     #existenPalabrasSinUsar(){
         let respuesta = false;
         this.esPalabraUsada.forEach(estadoDePalabra=>{
-            if(estadoDePalabra === NO_USADA)
+            if(estadoDePalabra === this.NO_USADA)
                 respuesta = true
         })
         return respuesta;
