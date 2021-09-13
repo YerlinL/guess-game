@@ -12,7 +12,9 @@ import elementoHTML from './ElementoHTMLBuilder.js';
     function constructor(){
         /*juego.llenarVectorPalabrasUsadas();
         alert("Ya se lleno el vector");*/
-        generarAbecedario();  
+        alert('kdkdkdkd')
+        generarAbecedario(); 
+       alert('kdkdkdkd')
         //agregarElementosFormulario();
         crearFormulario(10);
     }

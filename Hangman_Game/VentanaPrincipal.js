@@ -57,7 +57,7 @@
     
     function cargarVista(){
         ventanaPrincipal.loadURL(url.format({
-            pathname: path.join(__dirname, 'Views/instrucciones.html'),
+            pathname: path.join(__dirname, 'Views/juego.html'),
             protocol: 'file',
             slashes: true
          }));

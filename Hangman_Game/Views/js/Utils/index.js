@@ -7,7 +7,7 @@ const wait = time => {
     while(Date.now()-start < time){}
 }
 
-module.exports = {
+export default {
     generarNumeroAleatorio,
     wait
 }

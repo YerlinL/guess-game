@@ -1,4 +1,4 @@
-const { wait } = require('./Utils/index')
+import { wait } from './Utils/index'
 const VECTOR_OCUPACIONES = ["baker", "butcher", "salesman", "saleswoman", "cashier", 
 "hair dresser", "mechanic", "chef", "farmer", "waiter", "waitress"];
     
@@ -26,6 +26,7 @@ const VECTOR_OCUPACIONES = ["baker", "butcher", "salesman", "saleswoman", "cashi
             } 
            wait(400);
            quiereContinuarJugando(mensaje);
+        }
           
     }
 
@@ -117,7 +118,7 @@ const VECTOR_OCUPACIONES = ["baker", "butcher", "salesman", "saleswoman", "cashi
         }
      }
 
-module.exports = 
+export default 
 {
     seguirJugando, 
     getQuiereVolverJugar,
