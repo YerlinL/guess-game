@@ -1,4 +1,4 @@
-const {generarNumeroAleatorio} = require('./Utils/index')
+const { generarNumeroAleatorio } = require('./Utils/index')
 
 class GeneradorDePalabras {
 
@@ -51,4 +51,4 @@ class GeneradorDePalabras {
     }
 }
 
-export default GeneradorDePalabras;
+module.exports = GeneradorDePalabras;
