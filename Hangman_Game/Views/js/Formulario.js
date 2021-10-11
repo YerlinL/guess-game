@@ -1,16 +1,14 @@
 import ElementoHTML from './ElementoHTMLBuilder.js'; 
-import GeneradorDePalabras from './GeneradorDePalabras.js';
-import Partida from './Partida.js'
+import GeneradorPartidas from "./GeneradorPartidas.js";
 import Constantes from './Constantes.js'
 
-const { ocupaciones, estadosPartida } = Constantes
-const generador = new GeneradorDePalabras(ocupaciones);
-const palabra = generador.elegirPalabra();
-const partida = new Partida(palabra)
+const { estadosPartida } = Constantes;
+const generadorPartidas = new GeneradorPartidas();
+let { partida,palabra } = generadorPartidas.generarPartida();
+
 
 function iniciar(){
     generarAbecedario(); 
-    alert(palabra)
     crearFormulario(palabra.length);
 }
 
@@ -75,10 +73,31 @@ function generarAbecedario(){
     
 }
 
-function adivinar(){
-   const letraSeleccionada = this.innerText;
-   const estado = partida.actualizarEstadoDePartida(letraSeleccionada)
 
+
+function adivinar(){
+    const letraSeleccionada = this.innerText;
+    const { estado } = partida.actualizarEstadoDePartida(letraSeleccionada);
+    alert(estado);
+    if(estado === estadosPartida.gano){
+        alert("Congratulations you win!, try with another word");
+        regenerarPartida();
+    }else if(estado === estadosPartida.perdio){
+        alert("You lost, good luck next time, try again");
+        regenerarPartida();
+    }
+}
+
+function regenerarPartida(){
+    const partidaGenerada = generadorPartidas.generarPartida();
+    partida = partidaGenerada.partida;
+    palabra = partidaGenerada.palabra;
+    alert("La nueva palabra es " + palabra);
+    if(partida!==null){
+        crearFormulario(palabra.length);
+    }else{
+        alert("Game finished");
+    }
 }
 
 function agregarCambioLinea(elemento){

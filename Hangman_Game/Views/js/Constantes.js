@@ -11,5 +11,9 @@ export default {
         gano:'gano',
         perdio:'perdio',
         continua:'continua'
+    },
+    estadoJuego:{
+        finalizado: 'finalizo',
+        continuaJuego: 'continuaJuego'
     }
 }
