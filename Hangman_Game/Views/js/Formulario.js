@@ -2,6 +2,8 @@ import ElementoHTML from './ElementoHTMLBuilder.js';
 import GeneradorPartidas from "./GeneradorPartidas.js";
 import Constantes from './Constantes.js'
 
+const BOTON_DESHABILIDADO = "btn btn-info disabled";
+const BOTON_HABILITADO = "btn btn-info";
 const { estadosPartida } = Constantes;
 const generadorPartidas = new GeneradorPartidas();
 let { partida,palabra } = generadorPartidas.generarPartida();
@@ -76,6 +78,7 @@ function generarAbecedario(){
 
 
 function adivinar(){
+    this.className=BOTON_DESHABILIDADO;
     const letraSeleccionada = this.innerText;
     const { estado } = partida.actualizarEstadoDePartida(letraSeleccionada);
     alert(estado);
@@ -89,6 +92,8 @@ function adivinar(){
 }
 
 function regenerarPartida(){
+    borrarFormulario();
+    habilitarBotones();
     const partidaGenerada = generadorPartidas.generarPartida();
     partida = partidaGenerada.partida;
     palabra = partidaGenerada.palabra;
@@ -98,6 +103,24 @@ function regenerarPartida(){
     }else{
         alert("Game finished");
     }
+}
+
+function borrarFormulario(){
+    const padre = document.getElementById("input");
+    while(padre.firstChild){
+        padre.removeChild(padre.firstChild);
+    }
+}
+function habilitarBotones(){
+    const padre = document.getElementById("abecedario");
+    const botonesAbecedario = padre.childNodes;
+    for (let boton of botonesAbecedario){
+        if(boton.className === BOTON_DESHABILIDADO){
+            boton.className = BOTON_HABILITADO;
+        }
+    }
+
+
 }
 
 function agregarCambioLinea(elemento){

@@ -2,7 +2,7 @@ export default {
     ocupaciones: [
         "baker", "butcher", 
         "salesman", "saleswoman", 
-        "cashier", "hair dresser", 
+        "cashier", "hairdresser", 
         "mechanic", "chef", 
         "farmer", "waiter", 
         "waitress"
