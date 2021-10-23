@@ -4,8 +4,8 @@ const { estadosPartida } = Constantes
 
 class Partida {
     constructor(palabra){
-        this.letrasFaltantesParaGanar = Array.from(palabra);
-        this.palabraFormada
+        this.letrasFaltantesParaGanar = Array.from(palabra).filter(letra=>letra!==" ");
+        this.palabraFormada;
         this.clicsErroneosActuales = 0;
         this.maximoClics = palabra.length;
     }
@@ -16,8 +16,10 @@ class Partida {
             this.letrasFaltantesParaGanar.filter(letra=>letra!==letraSeleccionada);
         const letrasPorAdivinarDespues = this.letrasFaltantesParaGanar.length
 
-        if(letrasPorAdivinarAntes===letrasPorAdivinarDespues) 
+        if(letrasPorAdivinarAntes===letrasPorAdivinarDespues){
             this.#aumentarClicsErroneos();
+        }
+            
         return this.#retornarEstado();
     }
 
@@ -46,6 +48,7 @@ class Partida {
     #aumentarClicsErroneos(){
         this.clicsErroneosActuales = this.clicsErroneosActuales + 1;
     }
+
 }
 
 export default Partida;

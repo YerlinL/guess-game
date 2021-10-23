@@ -1,10 +1,11 @@
 import ElementoHTML from './ElementoHTMLBuilder.js'; 
 import GeneradorPartidas from "./GeneradorPartidas.js";
 import Constantes from './Constantes.js'
+import Utils from './Utils/index.js'
 
 const BOTON_DESHABILIDADO = "btn btn-info disabled";
 const BOTON_HABILITADO = "btn btn-info";
-const { estadosPartida } = Constantes;
+const { estadosPartida, pistas } = Constantes;
 const generadorPartidas = new GeneradorPartidas();
 let { partida,palabra } = generadorPartidas.generarPartida();
 
@@ -12,6 +13,7 @@ let { partida,palabra } = generadorPartidas.generarPartida();
 function iniciar(){
     generarAbecedario(); 
     crearFormulario(palabra.length);
+    asignarPista('baker');
 }
 
 function crearFormulario(cantidadLetrasPalabraSeleccionada){ 
@@ -25,7 +27,8 @@ function crearFormulario(cantidadLetrasPalabraSeleccionada){
         const elemento = new ElementoHTML(elementoNuevo)
                         .establecerAltura(altura)
                         .establecerAncho(ancho)
-                        .establecerID(cantidadCuadrosTexto.toString())
+                        .establecerID(cantidadCuadrosTexto)
+                        .establecerClase(palabra[cantidadCuadrosTexto])
                         .establecerEstado(desactivado);
         let input = elemento.obtenerElemento();
         
@@ -53,7 +56,6 @@ function generarAbecedario(){
         let elementoNuevo = document.createElement('button');
         let letraCreada = String.fromCharCode(letra);
         const boton = new ElementoHTML(elementoNuevo)
-                        .establecerID(letraCreada)
                         .establecerTipo("button")
                         .establecerClase("btn btn-info")
                         .establecerAltura(altura)
@@ -75,13 +77,11 @@ function generarAbecedario(){
     
 }
 
-
-
 function adivinar(){
     this.className=BOTON_DESHABILIDADO;
     const letraSeleccionada = this.innerText;
+    mostrarLetra(letraSeleccionada);
     const { estado } = partida.actualizarEstadoDePartida(letraSeleccionada);
-    alert(estado);
     if(estado === estadosPartida.gano){
         alert("Congratulations you win!, try with another word");
         regenerarPartida();
@@ -128,6 +128,17 @@ function agregarCambioLinea(elemento){
     elemento.appendChild(cambioLinea);
 }
 
+function mostrarLetra(letraSeleccionada){
+    let cajas = document.getElementsByClassName(letraSeleccionada);
+    for(let caja of cajas){
+        caja.value=letraSeleccionada;
+    }
+}
+
+function asignarPista(palabra){
+    const tarjeta = document.getElementById("pista");
+    tarjeta.innerText = pistas[palabra];
+}
 iniciar();
 
 

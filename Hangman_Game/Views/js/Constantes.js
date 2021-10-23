@@ -5,7 +5,13 @@ export default {
         "cashier", "hairdresser", 
         "mechanic", "chef", 
         "farmer", "waiter", 
-        "waitress"
+        "waitress", "bank", 
+        "school", "church",
+        "post office", "restaurant",
+        "bakery", "drugstore",
+        "grocery store", "butchery",
+        "hardware store", "shoe store", 
+        "clothing store", "bookstore"
     ],
     estadosPartida:{
         gano:'gano',
@@ -15,5 +21,8 @@ export default {
     estadoJuego:{
         finalizado: 'finalizo',
         continuaJuego: 'continuaJuego'
+    },
+    pistas:{
+        "baker": 'This person works in a bakery'
     }
 }
