@@ -11,6 +11,8 @@ const generadorPartidas = new GeneradorPartidas();
 let { partida,palabra } = generadorPartidas.generarPartida();
 
 
+
+
 function iniciar(){
     generarAbecedario(); 
     crearFormulario(palabra.length);
@@ -142,14 +144,21 @@ function mostrarLetra(letraSeleccionada){
 function asignarPista(palabra){
     const tarjeta = document.getElementById("pista");
     tarjeta.innerText = pistas[palabra];
-    tarjeta.onmouseover = reproducirAudio('../audios/prueba.mp3');
+    tarjeta.onmouseover = generarReproducirAudio(palabra);
+    
+   
+}
+
+function generarReproducirAudio(palabra){
+    const rutaAudio = './audios/prueba.mp3';
+    return()=>{
+       const audio = new Audio(rutaAudio);
+       audio.play();
+    }
+   
 }
 
 
-function reproducirAudio(audio){
-    audio = new Audio(audio);
-    audio.play();
-}
 iniciar();
 
 
