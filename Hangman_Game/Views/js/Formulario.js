@@ -3,6 +3,7 @@ import GeneradorPartidas from "./GeneradorPartidas.js";
 import Constantes from './Constantes.js'
 import Utils from './Utils/index.js'
 
+
 const BOTON_DESHABILIDADO = "btn btn-info disabled";
 const BOTON_HABILITADO = "btn btn-info";
 const { estadosPartida, pistas } = Constantes;
@@ -13,7 +14,7 @@ let { partida,palabra } = generadorPartidas.generarPartida();
 function iniciar(){
     generarAbecedario(); 
     crearFormulario(palabra.length);
-    asignarPista('baker');
+    asignarPista('waitress');
 }
 
 function crearFormulario(cantidadLetrasPalabraSeleccionada){ 
@@ -31,7 +32,6 @@ function crearFormulario(cantidadLetrasPalabraSeleccionada){
                         .establecerClase(palabra[cantidadCuadrosTexto])
                         .establecerEstado(desactivado);
         let input = elemento.obtenerElemento();
-        
         formulario.appendChild(input);
         
     }    
@@ -100,6 +100,7 @@ function regenerarPartida(){
     alert("La nueva palabra es " + palabra);
     if(partida!==null){
         crearFormulario(palabra.length);
+        asignarPista(palabra);
     }else{
         alert("Game finished");
     }
@@ -132,12 +133,22 @@ function mostrarLetra(letraSeleccionada){
     let cajas = document.getElementsByClassName(letraSeleccionada);
     for(let caja of cajas){
         caja.value=letraSeleccionada;
+        caja.style.color = '#a94a50';
+        caja.style.textAlign = 'center';
+        caja.style.fontWeight = 'bold';
     }
 }
 
 function asignarPista(palabra){
     const tarjeta = document.getElementById("pista");
     tarjeta.innerText = pistas[palabra];
+    tarjeta.onmouseover = reproducirAudio('../audios/prueba.mp3');
+}
+
+
+function reproducirAudio(audio){
+    audio = new Audio(audio);
+    audio.play();
 }
 iniciar();
 

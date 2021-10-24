@@ -32,8 +32,8 @@ body{
     width: 200px;
     height: 60px;
     text-align: center;
-    margin-top: 270px;
-    margin-left: 400px;
+    margin-top: 260px;
+    margin-left: 40px;
     border-radius: 1.078em;
     border-color: #a94a50;
 }
@@ -47,8 +47,7 @@ body{
     width: 200px;
     height: 60px;
     text-align: center;
-    margin-top:5px;
-    margin-left: 400px;
+    margin-left: 40px;
     border-radius: 1.078em;
     border-color: #a94a50;
 }
@@ -141,7 +140,9 @@ body{
   /* Style the back side */
   .flip-card-back {
     background-color: #ff6565;
-    color:white;
+    color: white;
+    font-size: 20px;
+    text-align: center;
     transform: rotateY(180deg);
   }
 
