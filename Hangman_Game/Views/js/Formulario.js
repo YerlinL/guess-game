@@ -4,8 +4,10 @@ import Constantes from './Constantes.js'
 import Utils from './Utils/index.js'
 
 
+
 const BOTON_DESHABILIDADO = "btn btn-info disabled";
 const BOTON_HABILITADO = "btn btn-info";
+const ID_AUDIO = "pistaAudio";
 const { estadosPartida, pistas } = Constantes;
 const generadorPartidas = new GeneradorPartidas();
 let { partida,palabra } = generadorPartidas.generarPartida();
@@ -16,7 +18,7 @@ let { partida,palabra } = generadorPartidas.generarPartida();
 function iniciar(){
     generarAbecedario(); 
     crearFormulario(palabra.length);
-    asignarPista('waitress');
+    asignarPista(palabra);
 }
 
 function crearFormulario(cantidadLetrasPalabraSeleccionada){ 
@@ -85,7 +87,8 @@ function adivinar(){
     mostrarLetra(letraSeleccionada);
     const { estado } = partida.actualizarEstadoDePartida(letraSeleccionada);
     if(estado === estadosPartida.gano){
-        alert("Congratulations you win!, try with another word");
+        //alert("Congratulations you win!, try with another word");
+        mostrarModal();
         regenerarPartida();
     }else if(estado === estadosPartida.perdio){
         alert("You lost, good luck next time, try again");
@@ -99,7 +102,6 @@ function regenerarPartida(){
     const partidaGenerada = generadorPartidas.generarPartida();
     partida = partidaGenerada.partida;
     palabra = partidaGenerada.palabra;
-    alert("La nueva palabra es " + palabra);
     if(partida!==null){
         crearFormulario(palabra.length);
         asignarPista(palabra);
@@ -144,7 +146,8 @@ function mostrarLetra(letraSeleccionada){
 function asignarPista(palabra){
     const tarjeta = document.getElementById("pista");
     tarjeta.innerText = pistas[palabra];
-    tarjeta.onmouseover = generarReproducirAudio(palabra);
+   // tarjeta.onmouseover = generarReproducirAudio(palabra);
+    //tarjeta.onmouseout = detenerAudio();
     
    
 }
@@ -153,11 +156,38 @@ function generarReproducirAudio(palabra){
     const rutaAudio = './audios/prueba.mp3';
     return()=>{
        const audio = new Audio(rutaAudio);
+       audio.id = ID_AUDIO;
        audio.play();
     }
    
 }
 
+/*function detenerAudio(){
+    const audio = document.getElementById(ID_AUDIO);
+    if(audio!=null){
+        audio.pause(); 
+        audio.currentTime=0;
+    }
+    
+    
+}*/
+
+function mostrarModal(){
+    alert("Mostrar modal");
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+    cerrarModal();
+    
+}
+
+function cerrarModal(){
+    var span = document.getElementsByClassName("close")[0];
+    var modal = document.getElementById("myModal");
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+}
+/*Ventana modal https://www.w3schools.com/howto/howto_css_modals.asp*/ 
 
 iniciar();
 
