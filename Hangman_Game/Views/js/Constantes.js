@@ -162,62 +162,84 @@ export default {
     },
   },
   audios: {
-    baker: { pista: "./audios/prueba.mp3", oracion: "prueba" },
-    butcher: { pista: "./audios/prueba.mp3", oracion: "./audios/prueba.mp3" },
+    baker: { 
+      pista: "./audios/Helpers_Hint/Baker_H.m4a", 
+      palabra: "./audios/Helpers_Sentences/Baker_SW.aac",
+      oracion: "./audios/Helpers_Sentences/Baker_S.m4a" },
+    butcher: { 
+      pista: "./audios/Helpers_Hint/Butcher_H.m4a", 
+      palabra: "",
+      oracion: "./audios/prueba.mp3" },
     salesman: {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Helpers_Hint/Salesman_H.aac",
       oracion: "./audios/prueba.mp3",
     },
     saleswoman: {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Helpers_Hint/Saleswoman_H.m4a",
       oracion: "./audios/prueba.mp3",
     },
-    cashier: { pista: "./audios/prueba.mp3", oracion: "./audios/prueba.mp3" },
+    cashier: { 
+      pista: "./audios/Helpers_Hint/Cashier_H.m4a", 
+      oracion: "./audios/prueba.mp3" },
     hairdresser: {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Helpers_Hint/Hairdresser_H.aac",
       oracion: "./audios/prueba.mp3",
     },
     mechanic: {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Helpers_Hint/Mechanic_H.m4a",
       oracion: "./audios/prueba.mp3",
     },
-    chef: { pista: "./audios/prueba.mp3", oracion: "./audios/prueba.mp3" },
-    farmer: { pista: "./audios/prueba.mp3", oracion: "./audios/prueba.mp3" },
-    waiter: { pista: "./audios/prueba.mp3", oracion: "./audios/prueba.mp3" },
+    chef: { 
+      pista: "./audios/Helpers_Hint/Chef_H.m4a", 
+      oracion: "./audios/prueba.mp3" },
+    farmer: { 
+      pista: "./audios/Helpers_Hint/Farmer_H.aac", 
+      oracion: "./audios/prueba.mp3" },
+    waiter: { 
+      pista: "./audios/Helpers_Hint/Waiter_H.m4a", 
+      oracion: "./audios/prueba.mp3" },
     waitress: {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Helpers_Hint/Waitress_H.m4a",
       oracion: "./audios/prueba.mp3",
     },
-    bank: { pista: "./audios/prueba.mp3", oracion: "./audios/prueba.mp3" },
-    school: { pista: "./audios/prueba.mp3", oracion: "./audios/prueba.mp3" },
-    church: { pista: "./audios/prueba.mp3", oracion: "./audios/prueba.mp3" },
+    bank: { 
+      pista: "./audios/Services_Hints/Bank_H.m4a", 
+      oracion: "./audios/prueba.mp3" },
+    school: { 
+      pista: "./audios/Services_Hints/School_H.m4a", 
+      oracion: "./audios/prueba.mp3" },
+    church: { 
+      pista: "./audios/Services_Hints/Church_H.m4a", 
+      oracion: "./audios/prueba.mp3" },
     "post office": {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Services_Hints/Post_Office_H.m4a",
       oracion: "./audios/prueba.mp3",
     },
     restaurant: {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Services_Hints/Restaurant_H.m4a",
       oracion: "./audios/prueba.mp3",
     },
-    bakery: { pista: "./audios/prueba.mp3", oracion: "./audios/prueba.mp3" },
+    bakery: { 
+      pista: "./audios/Services_Hints/Bakery_H.m4a", 
+      oracion: "./audios/prueba.mp3" },
     drugstore: {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Services_Hints/Drug_Store_H.m4a",
       oracion: "./audios/prueba.mp3",
     },
     "grocery store": {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Services_Hints/Grocery_Store_H.m4a",
       oracion: "./audios/prueba.mp3",
     },
     butchery: {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Services_Hints/Butchery_H.m4a",
       oracion: "./audios/prueba.mp3",
     },
     "hardware store": {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Services_Hints/Hardware_Store_H.m4a",
       oracion: "./audios/prueba.mp3",
     },
     "shoe store": {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Services_Hints/Shoe_Store_H.m4a",
       oracion: "./audios/prueba.mp3",
     },
     "clothing store": {
@@ -225,7 +247,7 @@ export default {
       oracion: "./audios/prueba.mp3",
     },
     bookstore: {
-      pista: "./audios/prueba.mp3",
+      pista: "./audios/Services_Hints/Book_store_H.m4a",
       oracion: "./audios/prueba.mp3",
     },
   },
