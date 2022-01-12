@@ -163,7 +163,7 @@ function mostrarModal() {
   modal.style.display = "block";
   agregarTituloModal(palabra);
   agregarOracionModal(palabra);
-  agregarImagenModal(palabra);
+  agregarImagenModal("drugstore");
   cerrarModal();
 }
 
@@ -184,6 +184,7 @@ function agregarImagenModal(palabra){
   let imagen = document.createElement('img');
   let img = document.getElementById("imagenPalabra");
   imagen.src = imagenes[palabra];
+  img.innerHTML = "";
   img.appendChild(imagen);
 
   
