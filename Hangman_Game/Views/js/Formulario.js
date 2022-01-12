@@ -6,7 +6,7 @@ import Utils from "./Utils/index.js";
 const BOTON_DESHABILIDADO = "btn btn-info disabled";
 const BOTON_HABILITADO = "btn btn-info";
 const ID_AUDIO = "pistaAudio";
-const { estadosPartida, pistas, audios, oraciones } = Constantes;
+const { estadosPartida, pistas, audios, oraciones, imagenes} = Constantes;
 const generadorPartidas = new GeneradorPartidas();
 let { partida, palabra } = generadorPartidas.generarPartida();
 let audio = null;
@@ -81,7 +81,6 @@ function adivinar() {
   mostrarLetra(letraSeleccionada);
   const { estado } = partida.actualizarEstadoDePartida(letraSeleccionada);
   if (estado === estadosPartida.gano) {
-    //alert("Congratulations you win!, try with another word");
     mostrarModal();
     regenerarPartida();
   } else if (estado === estadosPartida.perdio) {
@@ -160,11 +159,11 @@ function detenerAudio() {
 }
 
 function mostrarModal() {
-  alert("Mostrar modal");
   let modal = document.getElementById("myModal");
   modal.style.display = "block";
   agregarTituloModal(palabra);
   agregarOracionModal(palabra);
+  agregarImagenModal(palabra);
   cerrarModal();
 }
 
@@ -183,7 +182,10 @@ function agregarOracionModal(palabra){
 
 function agregarImagenModal(palabra){
   let imagen = document.createElement('img');
-  let img = document.getElementsByClassName("modal-body");
+  let img = document.getElementById("imagenPalabra");
+  imagen.src = imagenes[palabra];
+  img.appendChild(imagen);
+
   
 }
 
@@ -192,13 +194,11 @@ function agregarTituloModal(palabra){
   header.innerText = pasarPrimeraLetraMayuscula(palabra);
 
 }
- function pasarPrimeraLetraMayuscula(palabra = ""){
+ 
+function pasarPrimeraLetraMayuscula(palabra = ""){
    return palabra.charAt(0).toUpperCase() + palabra.slice(1);
  }
 
-function agregarTextoModal(){
-
-}
 /*Ventana modal https://www.w3schools.com/howto/howto_css_modals.asp*/
 
 iniciar();
