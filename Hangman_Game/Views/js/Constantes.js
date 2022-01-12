@@ -60,7 +60,7 @@ export default {
     butchery: "In this place you can buy meat",
     "hardware store": "In this place you can buy a hammer",
     "shoe store": "In this place people buy shoes",
-    "clothing store": "In this place people buy cloth",
+    "clothing store": "In this place people buy clothes",
     bookstore: "In this place people buy books",
   },
   oraciones: {
@@ -129,7 +129,7 @@ export default {
       oracion: "They eat dinner at the restaurant",
     },
     bakery: {
-      palabra: "The word us bakery",
+      palabra: "The word is bakery",
       oracion: "We go to the bakery to buy bread",
     },
     drugstore: {
@@ -153,8 +153,8 @@ export default {
       oracion: "The saleswoman sells shoes in the shoe store",
     },
     "clothing store": {
-      palabra: "",
-      oracion: "",
+      palabra: "The word is clothing store",
+      oracion: "The girl bought a dress in the clothing store",
     },
     bookstore: {
       palabra: "The word is book store",

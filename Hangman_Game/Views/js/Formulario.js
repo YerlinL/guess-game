@@ -6,7 +6,7 @@ import Utils from "./Utils/index.js";
 const BOTON_DESHABILIDADO = "btn btn-info disabled";
 const BOTON_HABILITADO = "btn btn-info";
 const ID_AUDIO = "pistaAudio";
-const { estadosPartida, pistas, audios } = Constantes;
+const { estadosPartida, pistas, audios, oraciones } = Constantes;
 const generadorPartidas = new GeneradorPartidas();
 let { partida, palabra } = generadorPartidas.generarPartida();
 let audio = null;
@@ -15,6 +15,7 @@ function iniciar() {
   generarAbecedario();
   crearFormulario(palabra.length);
   asignarPista(palabra);
+  
 }
 
 function crearFormulario(cantidadLetrasPalabraSeleccionada) {
@@ -160,17 +161,43 @@ function detenerAudio() {
 
 function mostrarModal() {
   alert("Mostrar modal");
-  var modal = document.getElementById("myModal");
+  let modal = document.getElementById("myModal");
   modal.style.display = "block";
+  agregarTituloModal(palabra);
+  agregarOracionModal(palabra);
   cerrarModal();
 }
 
 function cerrarModal() {
-  var span = document.getElementsByClassName("close")[0];
-  var modal = document.getElementById("myModal");
+  let span = document.getElementsByClassName("close")[0];
+  let modal = document.getElementById("myModal");
   span.onclick = function () {
     modal.style.display = "none";
   };
+}
+
+function agregarOracionModal(palabra){
+  let posicionTexto = document.getElementById('oracion');
+  posicionTexto.innerText = oraciones[palabra].oracion;
+}
+
+function agregarImagenModal(palabra){
+  let imagen = document.createElement('img');
+  let img = document.getElementsByClassName("modal-body");
+  
+}
+
+function agregarTituloModal(palabra){
+  let header = document.getElementById("tituloModal"); 
+  header.innerText = pasarPrimeraLetraMayuscula(palabra);
+
+}
+ function pasarPrimeraLetraMayuscula(palabra = ""){
+   return palabra.charAt(0).toUpperCase() + palabra.slice(1);
+ }
+
+function agregarTextoModal(){
+
 }
 /*Ventana modal https://www.w3schools.com/howto/howto_css_modals.asp*/
 
