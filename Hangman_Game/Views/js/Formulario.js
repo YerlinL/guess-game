@@ -161,10 +161,10 @@ function detenerAudio() {
 function mostrarModal() {
   let modal = document.getElementById("myModal");
   modal.style.display = "block";
-  agregarTituloModal("bookstore");
-  agregarOracionModal("bookstore");
-  agregarImagenModal("bookstore");
-  reproducirAudioModal("bookstore");
+  agregarTituloModal(palabra);
+  agregarOracionModal(palabra);
+  agregarImagenModal(palabra);
+  reproducirAudioModal(palabra);
   
 }
 

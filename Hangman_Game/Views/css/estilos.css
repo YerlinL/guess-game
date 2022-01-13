@@ -26,7 +26,7 @@ body{
     font-weight: bold;
 }
 
-.btnUno {
+.btnPlay {
     background-color: #bae0f5;
     color: #a94a50;
     font-family: 'Times New Roman';
@@ -41,7 +41,7 @@ body{
     border-color: #a94a50;
 }
 
-.btnDos{
+.btnInstructions{
     background-color: #bae0f5;
     color: #a94a50;
     font-family: 'Times New Roman';
@@ -53,6 +53,18 @@ body{
     margin-left: 40px;
     border-radius: 1.078em;
     border-color: #a94a50;
+}
+
+.btnDireccionar{
+  background-color: #ff6565;
+  color: #a94a50;
+  font-family: 'Times New Roman';
+  font-weight: bold;
+  font-size: 30;
+  width: 28px;
+  height: 30px;
+  border: none;
+  border-color: #a94a50;
 }
 
 .container {
