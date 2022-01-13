@@ -65,190 +65,216 @@ export default {
   },
   oraciones: {
     baker: {
-      palabra: "The word is baker",
+      descripcion: "The word is baker",
       oracion: "The baker bakes cakes",
     },
     butcher: {
-      palabra: "The word is butcher",
+      descripcion: "The word is butcher",
       oracion: "The butcher sells meat",
     },
     salesman: {
-      palabra: "The word is salesman",
+      descripcion: "The word is salesman",
       oracion: "The salesman sells products",
     },
     saleswoman: {
-      palabra: "The word is saleswoman",
+      descripcion: "The word is saleswoman",
       oracion: "The saleswoman sells products ",
     },
     cashier: {
-      palabra: "The word is cashier",
+      descripcion: "The word is cashier",
       oracion: "The cashier receives money from the customers",
     },
     hairdresser: {
-      palabra: "The word is hairdresser",
+      descripcion: "The word is hairdresser",
       oracion: "The hairdresser cuts the hair",
     },
     mechanic: {
-      palabra: "The word is mechanic ",
+      descripcion: "The word is mechanic ",
       oracion: "The mechanic repairs cars",
     },
     chef: {
-      palabra: "The word is chef",
+      descripcion: "The word is chef",
       oracion: "The chef cooks food",
     },
     farmer: {
-      palabra: "The word is farmer",
+      descripcion: "The word is farmer",
       oracion: "The farmer plants corn ",
     },
     waiter: {
-      palabra: "The word is waiter",
+      descripcion: "The word is waiter",
       oracion: "The waiter serves the food in the restaurant",
     },
     waitress: {
-      palabra: "The word is waitress",
+      descripcion: "The word is waitress",
       oracion: "The waitress serves the food in the restaurant",
     },
     bank: {
-      palabra: "The word is bank",
+      descripcion: "The word is bank",
       oracion: "The clerk works in a bank",
     },
     school: {
-      palabra: "The word is school",
+      descripcion: "The word is school",
       oracion: "The teacher works in a school ",
     },
     church: {
-      palabra: "The word is church",
+      descripcion: "The word is church",
       oracion: "People go to church every Sunday",
     },
     "post office": {
-      palabra: "The word is post office",
+      descripcion: "The word is post office",
       oracion: "The letter is in the post office",
     },
     restaurant: {
-      palabra: "The word is restaurant",
+      descripcion: "The word is restaurant",
       oracion: "They eat dinner at the restaurant",
     },
     bakery: {
-      palabra: "The word is bakery",
+      descripcion: "The word is bakery",
       oracion: "We go to the bakery to buy bread",
     },
     drugstore: {
-      palabra: "The word is drug store",
+      descripcion: "The word is drug store",
       oracion: "People go to the drug store to buy medicines",
     },
     "grocery store": {
-      palabra: "The word is grocery store",
+      descripcion: "The word is grocery store",
       oracion: "Children like to buy candies at the grocery store",
     },
     butchery: {
-      palabra: "The word is butchery",
+      descripcion: "The word is butchery",
       oracion: "The chef goes to the butchery to buy meat for lunch",
     },
     "hardware store": {
-      palabra: "The word is hardware store ",
+      descripcion: "The word is hardware store ",
       oracion: "The farmer goes to the hardware store to buy nails",
     },
     "shoe store": {
-      palabra: "The word is shoe store",
+      descripcion: "The word is shoe store",
       oracion: "The saleswoman sells shoes in the shoe store",
     },
     "clothing store": {
-      palabra: "The word is clothing store",
+      descripcion: "The word is clothing store",
       oracion: "The girl bought a dress in the clothing store",
     },
     bookstore: {
-      palabra: "The word is book store",
+      descripcion: "The word is book store",
       oracion: "The salesman sells story books in the bookstore",
     },
   },
   audios: {
     baker: { 
       pista: "./audios/Helpers_Hint/Baker_H.m4a", 
-      palabra: "./audios/Helpers_Sentences/Baker_SW.aac",
+      descripcion: "./audios/Helpers_Sentences/Baker_SW.aac",
       oracion: "./audios/Helpers_Sentences/Baker_S.m4a" },
     butcher: { 
       pista: "./audios/Helpers_Hint/Butcher_H.m4a", 
-      palabra: "",
-      oracion: "./audios/prueba.mp3" },
+      descripcion: "./audios/Helpers_Sentences/Butcher_SW.m4a",
+      oracion: "./audios/Helpers_Sentences/Butcher_S.aac" },
     salesman: {
       pista: "./audios/Helpers_Hint/Salesman_H.aac",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Helpers_Sentences/Salesman_SW.m4a",
+      oracion: "./audios/Helpers_Sentences/Salesman_S.m4a",
     },
     saleswoman: {
       pista: "./audios/Helpers_Hint/Saleswoman_H.m4a",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Helpers_Sentences/Saleswoman_SW.aac",
+      oracion: "./audios/Helpers_Sentences/Saleswoman_S.m4a",
     },
     cashier: { 
       pista: "./audios/Helpers_Hint/Cashier_H.m4a", 
-      oracion: "./audios/prueba.mp3" },
+      descripcion: "./audios/Helpers_Sentences/Cashier_SW.m4a",
+      oracion: "./audios/Helpers_Sentences/Cashier_S.aac" 
+    },
     hairdresser: {
       pista: "./audios/Helpers_Hint/Hairdresser_H.aac",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Helpers_Sentences/Hairdresser_SW.m4a",
+      oracion: "./audios/Helpers_Sentences/Hairdresser_S.m4a",
     },
     mechanic: {
       pista: "./audios/Helpers_Hint/Mechanic_H.m4a",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Helpers_Sentences/Mechanic_SW.aac",
+      oracion: "./audios/Helpers_Sentences/Mechanic_S.m4a",
     },
     chef: { 
       pista: "./audios/Helpers_Hint/Chef_H.m4a", 
-      oracion: "./audios/prueba.mp3" },
+      descripcion: "./audios/Helpers_Sentences/Chef_SW.m4a",
+      oracion: "./audios/Helpers_Sentences/Chef_S.aac" 
+    },
     farmer: { 
       pista: "./audios/Helpers_Hint/Farmer_H.aac", 
-      oracion: "./audios/prueba.mp3" },
+      descripcion: "./audios/Helpers_Sentences/Farmer_SW.m4a",
+      oracion: "./audios/Helpers_Sentences/Farmer_S.m4a" 
+    },
     waiter: { 
       pista: "./audios/Helpers_Hint/Waiter_H.m4a", 
-      oracion: "./audios/prueba.mp3" },
+      descripcion: "./audios/Helpers_Sentences/Waiter_SW.aac",
+      oracion: "./audios/Helpers_Sentences/Waiter_S.m4a" },
     waitress: {
       pista: "./audios/Helpers_Hint/Waitress_H.m4a",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Helpers_Sentences/Waitress_S.aac",
+      oracion: "./audios/Helpers_Sentences/Waitress_SW.m4a",
     },
     bank: { 
       pista: "./audios/Services_Hints/Bank_H.m4a", 
-      oracion: "./audios/prueba.mp3" },
+      descripcion: "./audios/Services_Sentences/Bank_SW.m4a",
+      oracion: "./audios/Services_Sentences/Bank_S.m4a" },
     school: { 
       pista: "./audios/Services_Hints/School_H.m4a", 
-      oracion: "./audios/prueba.mp3" },
+      descripcion: "./audios/Services_Sentences/School_SW.m4a",
+      oracion: "./audios/Services_Sentences/School_S.m4a" 
+    },
     church: { 
       pista: "./audios/Services_Hints/Church_H.m4a", 
-      oracion: "./audios/prueba.mp3" },
+      descripcion: "./audios/Services_Sentences/Church_SW.m4a",
+      oracion: "./audios/Services_Sentences/Church_S.m4a" },
     "post office": {
       pista: "./audios/Services_Hints/Post_Office_H.m4a",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Services_Sentences/Post_Office_SW.m4a",
+      oracion: "./audios/Services_Sentences/Post_office_S.m4a",
     },
     restaurant: {
       pista: "./audios/Services_Hints/Restaurant_H.m4a",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Services_Sentences/Restaurant_SW.m4a",
+      oracion: "./audios/Services_Sentences/Restaurant_S,m4a",
     },
     bakery: { 
       pista: "./audios/Services_Hints/Bakery_H.m4a", 
-      oracion: "./audios/prueba.mp3" },
+      descripcion: "./audios/Services_Sentences/Bakery_SW.m4a",
+      oracion: "./audios/Services_Sentences/Bakery_S.m4a" },
     drugstore: {
       pista: "./audios/Services_Hints/Drug_Store_H.m4a",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Services_Sentences/Drugstore_SW.m4a",
+      oracion: "./audios/Services_Sentences/Drugstore_S.m4a",
     },
     "grocery store": {
       pista: "./audios/Services_Hints/Grocery_Store_H.m4a",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Services_Sentences/Grocery_Store_SW.m4a",
+      oracion: "./audios/Services_Sentences/Grocery_Store_S.m4a",
     },
     butchery: {
       pista: "./audios/Services_Hints/Butchery_H.m4a",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Services_Sentences/Butchery_SW.m4a",
+      oracion: "./audios/Services_Sentences/Butchery_S.m4a",
     },
     "hardware store": {
       pista: "./audios/Services_Hints/Hardware_Store_H.m4a",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Services_Sentences/Hardware_Store_SW.m4a",
+      oracion: "./audios/Services_Sentences/Hardware_Store_S.m4a",
     },
     "shoe store": {
       pista: "./audios/Services_Hints/Shoe_Store_H.m4a",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Services_Sentences/Shoe_Store_SW.m4a",
+      oracion: "./audios/Services_Sentences/Shoe_Store_S.m4a",
     },
     "clothing store": {
       pista: "./audios/prueba.mp3",
+      descripcion: "./audios/prueba.mp3",
       oracion: "./audios/prueba.mp3",
     },
     bookstore: {
       pista: "./audios/Services_Hints/Book_store_H.m4a",
-      oracion: "./audios/prueba.mp3",
+      descripcion: "./audios/Services_Sentences/Book_Store_SW.m4a",
+      oracion: "./audios/Services_Sentences/Book_Store_S.m4a",
     },
   },
   imagenes: {

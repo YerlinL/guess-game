@@ -163,7 +163,8 @@ function mostrarModal() {
   modal.style.display = "block";
   agregarTituloModal(palabra);
   agregarOracionModal(palabra);
-  agregarImagenModal("drugstore");
+  agregarImagenModal(palabra);
+  reproducirAudioModal(palabra);
   cerrarModal();
 }
 
@@ -178,6 +179,7 @@ function cerrarModal() {
 function agregarOracionModal(palabra){
   let posicionTexto = document.getElementById('oracion');
   posicionTexto.innerText = oraciones[palabra].oracion;
+  
 }
 
 function agregarImagenModal(palabra){
@@ -192,13 +194,24 @@ function agregarImagenModal(palabra){
 
 function agregarTituloModal(palabra){
   let header = document.getElementById("tituloModal"); 
-  header.innerText = pasarPrimeraLetraMayuscula(palabra);
+  header.innerText = oraciones[palabra].descripcion;
+}
+
+
+function reproducirAudioModal(palabra){
+  const rutaAudioDescripcion = audios[palabra].descripcion;
+  const rutaAudioOracion = audios[palabra].oracion;
+  let audioDescripcion = new Audio(rutaAudioDescripcion);
+  audioDescripcion.onended = () =>{
+    let audioOracion = new Audio(rutaAudioOracion);
+    audioOracion.onended = () =>{
+      // sustituir por lo que quiera que haga ahi al final
+    }
+    audioOracion.play();
+  }
+  audioDescripcion.play();
 
 }
- 
-function pasarPrimeraLetraMayuscula(palabra = ""){
-   return palabra.charAt(0).toUpperCase() + palabra.slice(1);
- }
 
 /*Ventana modal https://www.w3schools.com/howto/howto_css_modals.asp*/
 
