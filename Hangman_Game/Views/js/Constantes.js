@@ -118,7 +118,7 @@ export default {
     },
     church: {
       descripcion: "The word is church",
-      oracion: "People go to church every Sunday",
+      oracion: "Some people go to church every Sunday",
     },
     "post office": {
       descripcion: "The word is post office",
@@ -157,7 +157,7 @@ export default {
       oracion: "The girl bought a dress in the clothing store",
     },
     bookstore: {
-      descripcion: "The word is book store",
+      descripcion: "The word is bookstore",
       oracion: "The salesman sells story books in the bookstore",
     },
   },
@@ -236,7 +236,7 @@ export default {
     restaurant: {
       pista: "./audios/Services_Hints/Restaurant_H.m4a",
       descripcion: "./audios/Services_Sentences/Restaurant_SW.m4a",
-      oracion: "./audios/Services_Sentences/Restaurant_S,m4a",
+      oracion: "./audios/Services_Sentences/Restaurant_S.m4a",
     },
     bakery: { 
       pista: "./audios/Services_Hints/Bakery_H.m4a", 
@@ -297,9 +297,9 @@ export default {
     restaurant: "./img/Community_Services/Restaurant.png",
     bakery: "./img/Community_Services/Bakery.png", 
     drugstore: "./img/Community_Services/Drug Store.png",
-    "grocery store": "./img/Community_Services/Grocery Store.jpg", 
+    "grocery store": "./img/Community_Services/Grocery Store.png", 
     butchery: "./img/Community_Services/Butchery.png",
-    "hardware store": "./img/Community_Services/Hardware Store.jpg", 
+    "hardware store": "./img/Community_Services/Hardware Store.png", 
     "shoe store": "", 
     "clothing store": "", 
     bookstore: "",

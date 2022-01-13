@@ -84,7 +84,7 @@ function adivinar() {
     mostrarModal();
     regenerarPartida();
   } else if (estado === estadosPartida.perdio) {
-    alert("You lost, good luck next time, try again");
+    mostrarModal();
     regenerarPartida();
   }
 }
@@ -161,11 +161,11 @@ function detenerAudio() {
 function mostrarModal() {
   let modal = document.getElementById("myModal");
   modal.style.display = "block";
-  agregarTituloModal(palabra);
-  agregarOracionModal(palabra);
-  agregarImagenModal(palabra);
-  reproducirAudioModal(palabra);
-  //cerrarModal();
+  agregarTituloModal("bookstore");
+  agregarOracionModal("bookstore");
+  agregarImagenModal("bookstore");
+  reproducirAudioModal("bookstore");
+  
 }
 
 function cerrarModal() {
