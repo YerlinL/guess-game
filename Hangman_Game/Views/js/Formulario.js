@@ -165,15 +165,12 @@ function mostrarModal() {
   agregarOracionModal(palabra);
   agregarImagenModal(palabra);
   reproducirAudioModal(palabra);
-  cerrarModal();
+  //cerrarModal();
 }
 
 function cerrarModal() {
-  let span = document.getElementsByClassName("close")[0];
   let modal = document.getElementById("myModal");
-  span.onclick = function () {
-    modal.style.display = "none";
-  };
+  modal.style.display = "none";
 }
 
 function agregarOracionModal(palabra){
@@ -199,13 +196,20 @@ function agregarTituloModal(palabra){
 
 
 function reproducirAudioModal(palabra){
+  let contadorReproducciones = 1;
   const rutaAudioDescripcion = audios[palabra].descripcion;
   const rutaAudioOracion = audios[palabra].oracion;
   let audioDescripcion = new Audio(rutaAudioDescripcion);
   audioDescripcion.onended = () =>{
     let audioOracion = new Audio(rutaAudioOracion);
     audioOracion.onended = () =>{
-      // sustituir por lo que quiera que haga ahi al final
+      if(contadorReproducciones!=2){
+        contadorReproducciones+=1;
+        audioDescripcion.play();
+      }else{
+        cerrarModal();
+      }
+      
     }
     audioOracion.play();
   }
