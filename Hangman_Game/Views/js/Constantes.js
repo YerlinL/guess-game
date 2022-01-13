@@ -164,55 +164,56 @@ export default {
   audios: {
     baker: { 
       pista: "./audios/Helpers_Hint/Baker_H.m4a", 
-      descripcion: "./audios/Helpers_Sentences/Baker_SW.aac",
+      descripcion: "./audios/Helpers_Sentences/Baker_SW.m4a",
       oracion: "./audios/Helpers_Sentences/Baker_S.m4a" },
     butcher: { 
       pista: "./audios/Helpers_Hint/Butcher_H.m4a", 
       descripcion: "./audios/Helpers_Sentences/Butcher_SW.m4a",
-      oracion: "./audios/Helpers_Sentences/Butcher_S.aac" },
+      oracion: "./audios/Helpers_Sentences/Butcher_S.m4a" },
     salesman: {
-      pista: "./audios/Helpers_Hint/Salesman_H.aac",
+      pista: "./audios/Helpers_Hint/Salesman_H.m4a",
       descripcion: "./audios/Helpers_Sentences/Salesman_SW.m4a",
       oracion: "./audios/Helpers_Sentences/Salesman_S.m4a",
     },
     saleswoman: {
       pista: "./audios/Helpers_Hint/Saleswoman_H.m4a",
-      descripcion: "./audios/Helpers_Sentences/Saleswoman_SW.aac",
+      descripcion: "./audios/Helpers_Sentences/Saleswoman_SW.m4a",
       oracion: "./audios/Helpers_Sentences/Saleswoman_S.m4a",
     },
     cashier: { 
       pista: "./audios/Helpers_Hint/Cashier_H.m4a", 
       descripcion: "./audios/Helpers_Sentences/Cashier_SW.m4a",
-      oracion: "./audios/Helpers_Sentences/Cashier_S.aac" 
+      oracion: "./audios/Helpers_Sentences/Cashier_S.m4a" 
     },
     hairdresser: {
-      pista: "./audios/Helpers_Hint/Hairdresser_H.aac",
+      pista: "./audios/Helpers_Hint/Hairdresser_H.m4a",
       descripcion: "./audios/Helpers_Sentences/Hairdresser_SW.m4a",
       oracion: "./audios/Helpers_Sentences/Hairdresser_S.m4a",
     },
     mechanic: {
       pista: "./audios/Helpers_Hint/Mechanic_H.m4a",
-      descripcion: "./audios/Helpers_Sentences/Mechanic_SW.aac",
+      descripcion: "./audios/Helpers_Sentences/Mechanic_SW.m4a",
       oracion: "./audios/Helpers_Sentences/Mechanic_S.m4a",
     },
     chef: { 
       pista: "./audios/Helpers_Hint/Chef_H.m4a", 
       descripcion: "./audios/Helpers_Sentences/Chef_SW.m4a",
-      oracion: "./audios/Helpers_Sentences/Chef_S.aac" 
+      oracion: "./audios/Helpers_Sentences/Chef_S.m4a" 
     },
     farmer: { 
-      pista: "./audios/Helpers_Hint/Farmer_H.aac", 
+      pista: "./audios/Helpers_Hint/Farmer_H.m4a", 
       descripcion: "./audios/Helpers_Sentences/Farmer_SW.m4a",
       oracion: "./audios/Helpers_Sentences/Farmer_S.m4a" 
     },
     waiter: { 
       pista: "./audios/Helpers_Hint/Waiter_H.m4a", 
-      descripcion: "./audios/Helpers_Sentences/Waiter_SW.aac",
-      oracion: "./audios/Helpers_Sentences/Waiter_S.m4a" },
+      descripcion: "./audios/Helpers_Sentences/Waiter_SW.m4a",
+      oracion: "./audios/Helpers_Sentences/Waiter_S.m4a" 
+    },
     waitress: {
       pista: "./audios/Helpers_Hint/Waitress_H.m4a",
-      descripcion: "./audios/Helpers_Sentences/Waitress_S.aac",
-      oracion: "./audios/Helpers_Sentences/Waitress_SW.m4a",
+      descripcion:"./audios/Helpers_Sentences/Waitress_SW.m4a", 
+      oracion: "./audios/Helpers_Sentences/Waitress_S.m4a"
     },
     bank: { 
       pista: "./audios/Services_Hints/Bank_H.m4a", 
