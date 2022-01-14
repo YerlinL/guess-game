@@ -6,16 +6,15 @@ import Utils from "./Utils/index.js";
 const BOTON_DESHABILIDADO = "btn btn-info disabled";
 const BOTON_HABILITADO = "btn btn-info";
 const ID_AUDIO = "pistaAudio";
-const { estadosPartida, pistas, audios, oraciones, imagenes} = Constantes;
+const { estadosPartida, pistas, audios, oraciones, imagenes } = Constantes;
 const generadorPartidas = new GeneradorPartidas();
 let { partida, palabra } = generadorPartidas.generarPartida();
-let audio = null;
+// let audio = null;
 
 function iniciar() {
   generarAbecedario();
   crearFormulario(palabra.length);
   asignarPista(palabra);
-  
 }
 
 function crearFormulario(cantidadLetrasPalabraSeleccionada) {
@@ -138,21 +137,32 @@ function asignarPista(palabra) {
   const tarjetaTexto = document.getElementById("pista");
   const tarjetaCarta = document.getElementById("pista-card");
   tarjetaTexto.innerText = pistas[palabra];
-  tarjetaCarta.onmouseover = generarReproducirAudio(palabra);
+  generarReproducirAudio(palabra);
+  const playAudio = () => {
+    const audio = document.getElementById(ID_AUDIO);
+    audio.setAttribute("muted", true);
+    audio.setAttribute("allow", "autoplay");
+    audio.play();
+  };
+  tarjetaCarta.onmouseover = playAudio;
   tarjetaCarta.onmouseout = detenerAudio;
 }
 
 function generarReproducirAudio(palabra) {
   const rutaAudio = audios[palabra].pista;
-  return () => {
-    audio = new Audio(rutaAudio);
-    audio.id = ID_AUDIO;
-    audio.play();
-  };
+  const audioPlaceholder = document.getElementById("audio-placeholder");
+  audioPlaceholder.innerHTML = ""; // borrar audio anterior
+  const audio = document.createElement("audio");
+  audio.setAttribute("src", rutaAudio);
+  audio.setAttribute("id", ID_AUDIO);
+  audio.setAttribute("muted", true);
+  audio.setAttribute("allow", "autoplay");
+  audioPlaceholder.appendChild(audio);
 }
 
 function detenerAudio() {
-  if (audio != null) {
+  const audio = document.getElementById(ID_AUDIO);
+  if (audio !== null) {
     audio.pause();
     audio.currentTime = 0;
   }
@@ -165,7 +175,6 @@ function mostrarModal() {
   agregarOracionModal(palabra);
   agregarImagenModal(palabra);
   reproducirAudioModal(palabra);
-  
 }
 
 function cerrarModal() {
@@ -173,48 +182,42 @@ function cerrarModal() {
   modal.style.display = "none";
 }
 
-function agregarOracionModal(palabra){
-  let posicionTexto = document.getElementById('oracion');
+function agregarOracionModal(palabra) {
+  let posicionTexto = document.getElementById("oracion");
   posicionTexto.innerText = oraciones[palabra].oracion;
-  
 }
 
-function agregarImagenModal(palabra){
-  let imagen = document.createElement('img');
+function agregarImagenModal(palabra) {
+  let imagen = document.createElement("img");
   let img = document.getElementById("imagenPalabra");
   imagen.src = imagenes[palabra];
   img.innerHTML = "";
   img.appendChild(imagen);
-
-  
 }
 
-function agregarTituloModal(palabra){
-  let header = document.getElementById("tituloModal"); 
+function agregarTituloModal(palabra) {
+  let header = document.getElementById("tituloModal");
   header.innerText = oraciones[palabra].descripcion;
 }
 
-
-function reproducirAudioModal(palabra){
+function reproducirAudioModal(palabra) {
   let contadorReproducciones = 1;
   const rutaAudioDescripcion = audios[palabra].descripcion;
   const rutaAudioOracion = audios[palabra].oracion;
   let audioDescripcion = new Audio(rutaAudioDescripcion);
-  audioDescripcion.onended = () =>{
+  audioDescripcion.onended = () => {
     let audioOracion = new Audio(rutaAudioOracion);
-    audioOracion.onended = () =>{
-      if(contadorReproducciones!=2){
-        contadorReproducciones+=1;
+    audioOracion.onended = () => {
+      if (contadorReproducciones != 2) {
+        contadorReproducciones += 1;
         audioDescripcion.play();
-      }else{
+      } else {
         cerrarModal();
       }
-      
-    }
+    };
     audioOracion.play();
-  }
+  };
   audioDescripcion.play();
-
 }
 
 /*Ventana modal https://www.w3schools.com/howto/howto_css_modals.asp*/
