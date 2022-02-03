@@ -9,13 +9,12 @@ const ID_AUDIO = "pistaAudio";
 const { estadosPartida, pistas, audios, efectos, oraciones, imagenes} = Constantes;
 const generadorPartidas = new GeneradorPartidas();
 let { partida, palabra } = generadorPartidas.generarPartida();
-let audio = null;
+// let audio = null;
 
 function iniciar() {
   generarAbecedario();
   crearFormulario(palabra.length);
   asignarPista(palabra);
-  
 }
 
 function crearFormulario(cantidadLetrasPalabraSeleccionada) {
@@ -78,7 +77,12 @@ function generarAbecedario() {
 function adivinar() {
   this.className = BOTON_DESHABILIDADO;
   const letraSeleccionada = this.innerText;
-  mostrarLetra(letraSeleccionada);
+  const seMostro = tratarMostrarLetra(letraSeleccionada);
+  if(seMostro){
+    //efectos[correcto];
+  }else{
+    //efectos[incorrecto];
+  }
   const { estado } = partida.actualizarEstadoDePartida(letraSeleccionada);
   if (estado === estadosPartida.gano) {
     mostrarModal();
@@ -124,44 +128,54 @@ function agregarCambioLinea(elemento) {
   elemento.appendChild(cambioLinea);
 }
 
-function mostrarLetra(letraSeleccionada) {
+function tratarMostrarLetra(letraSeleccionada) {
   let cajas = document.getElementsByClassName(letraSeleccionada);
+  const seMostro = cajas.length > 0;
   for (let caja of cajas) {
     caja.value = letraSeleccionada;
     caja.style.color = "#a94a50";
     caja.style.textAlign = "center";
     caja.style.fontWeight = "bold";
   }
+  return seMostro;
 }
 
 function asignarPista(palabra) {
   const tarjetaTexto = document.getElementById("pista");
   const tarjetaCarta = document.getElementById("pista-card");
   tarjetaTexto.innerText = pistas[palabra];
-  reproducirAudioPistaCarta(palabra);
+  generarReproducirAudioPistaCarta(palabra);
   tarjetaCarta.onmouseout = detenerAudio;
 }
 
-function generarReproducirAudio(ruta) {
-  const rutaAudio = ruta;
-  return () => {
-    audio = new Audio(rutaAudio);
-    audio.id = ID_AUDIO;
-    audio.play();
-  };
+function crearAudio(palabra) {
+  const rutaAudio = audios[palabra].pista;
+  const audioPlaceholder = document.getElementById("audio-placeholder");
+  audioPlaceholder.innerHTML = ""; // borrar audio anterior
+  const audio = document.createElement("audio");
+  audio.setAttribute("src", rutaAudio);
+  audio.setAttribute("id", ID_AUDIO);
+  audio.setAttribute("muted", true);
+  audio.setAttribute("allow", "autoplay");
+  audioPlaceholder.appendChild(audio);
 }
 
 function detenerAudio() {
-  if (audio != null) {
+  const audio = document.getElementById(ID_AUDIO);
+  if (audio !== null) {
     audio.pause();
     audio.currentTime = 0;
   }
 }
 
-function reproducirAudioPistaCarta(palabra){
+function generarReproducirAudioPistaCarta(palabra){
   const boton =  document.getElementById("reproducirAudio");
-  let ruta = audios[palabra].pista;
-  boton.onclick = generarReproducirAudio(ruta);
+  crearAudio(palabra);
+  const reproducirAudio = function (){
+    const audioReproducir = document.getElementById(ID_AUDIO); 
+    audioReproducir.play();
+  }
+  boton.onclick = reproducirAudio;
 }
 
 function mostrarModal() {
@@ -171,7 +185,6 @@ function mostrarModal() {
   agregarOracionModal(palabra);
   agregarImagenModal(palabra);
   reproducirAudioModal(palabra);
-  
 }
 
 function cerrarModal() {
@@ -179,47 +192,42 @@ function cerrarModal() {
   modal.style.display = "none";
 }
 
-function agregarOracionModal(palabra){
-  let posicionTexto = document.getElementById('oracion');
+function agregarOracionModal(palabra) {
+  let posicionTexto = document.getElementById("oracion");
   posicionTexto.innerText = oraciones[palabra].oracion;
-  
 }
 
-function agregarImagenModal(palabra){
-  let imagen = document.createElement('img');
+function agregarImagenModal(palabra) {
+  let imagen = document.createElement("img");
   let img = document.getElementById("imagenPalabra");
   imagen.src = imagenes[palabra];
   img.innerHTML = "";
   img.appendChild(imagen);
-  
 }
 
-function agregarTituloModal(palabra){
-  let header = document.getElementById("tituloModal"); 
+function agregarTituloModal(palabra) {
+  let header = document.getElementById("tituloModal");
   header.innerText = oraciones[palabra].descripcion;
 }
 
-
-function reproducirAudioModal(palabra){
+function reproducirAudioModal(palabra) {
   let contadorReproducciones = 1;
   const rutaAudioDescripcion = audios[palabra].descripcion;
   const rutaAudioOracion = audios[palabra].oracion;
   let audioDescripcion = new Audio(rutaAudioDescripcion);
-  audioDescripcion.onended = () =>{
+  audioDescripcion.onended = () => {
     let audioOracion = new Audio(rutaAudioOracion);
-    audioOracion.onended = () =>{
-      if(contadorReproducciones!=2){
-        contadorReproducciones+=1;
+    audioOracion.onended = () => {
+      if (contadorReproducciones != 2) {
+        contadorReproducciones += 1;
         audioDescripcion.play();
-      }else{
+      } else {
         cerrarModal();
       }
-      
-    }
+    };
     audioOracion.play();
-  }
+  };
   audioDescripcion.play();
-
 }
 
 /*Ventana modal https://www.w3schools.com/howto/howto_css_modals.asp*/
