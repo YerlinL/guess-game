@@ -9,7 +9,6 @@ const ID_AUDIO = "pistaAudio";
 const { estadosPartida, pistas, audios, efectos, oraciones, imagenes} = Constantes;
 const generadorPartidas = new GeneradorPartidas();
 let { partida, palabra } = generadorPartidas.generarPartida();
-// let audio = null;
 
 function iniciar() {
   generarAbecedario();
@@ -79,9 +78,11 @@ function adivinar() {
   const letraSeleccionada = this.innerText;
   const seMostro = tratarMostrarLetra(letraSeleccionada);
   if(seMostro){
-    //efectos[correcto];
+    const audioCorrecto = document.getElementById("audioCorrecto");
+    audioCorrecto.play();
   }else{
-    //efectos[incorrecto];
+    const audioIncorrecto = document.getElementById("audioIncorrecto");
+    audioIncorrecto.play();
   }
   const { estado } = partida.actualizarEstadoDePartida(letraSeleccionada);
   if (estado === estadosPartida.gano) {
