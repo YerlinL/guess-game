@@ -6,7 +6,7 @@ import Utils from "./Utils/index.js";
 const BOTON_DESHABILIDADO = "btn btn-info disabled";
 const BOTON_HABILITADO = "btn btn-info";
 const ID_AUDIO = "pistaAudio";
-const { estadosPartida, pistas, audios, oraciones, imagenes} = Constantes;
+const { estadosPartida, pistas, audios, efectos, oraciones, imagenes} = Constantes;
 const generadorPartidas = new GeneradorPartidas();
 let { partida, palabra } = generadorPartidas.generarPartida();
 let audio = null;
@@ -138,12 +138,12 @@ function asignarPista(palabra) {
   const tarjetaTexto = document.getElementById("pista");
   const tarjetaCarta = document.getElementById("pista-card");
   tarjetaTexto.innerText = pistas[palabra];
-  tarjetaCarta.onmouseover = generarReproducirAudio(palabra);
+  reproducirAudioPistaCarta(palabra);
   tarjetaCarta.onmouseout = detenerAudio;
 }
 
-function generarReproducirAudio(palabra) {
-  const rutaAudio = audios[palabra].pista;
+function generarReproducirAudio(ruta) {
+  const rutaAudio = ruta;
   return () => {
     audio = new Audio(rutaAudio);
     audio.id = ID_AUDIO;
@@ -156,6 +156,12 @@ function detenerAudio() {
     audio.pause();
     audio.currentTime = 0;
   }
+}
+
+function reproducirAudioPistaCarta(palabra){
+  const boton =  document.getElementById("reproducirAudio");
+  let ruta = audios[palabra].pista;
+  boton.onclick = generarReproducirAudio(ruta);
 }
 
 function mostrarModal() {
@@ -185,7 +191,6 @@ function agregarImagenModal(palabra){
   imagen.src = imagenes[palabra];
   img.innerHTML = "";
   img.appendChild(imagen);
-
   
 }
 

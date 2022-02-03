@@ -300,8 +300,14 @@ export default {
     "grocery store": "./img/Community_Services/Grocery Store.png", 
     butchery: "./img/Community_Services/Butchery.png",
     "hardware store": "./img/Community_Services/Hardware Store.png", 
-    "shoe store": "", 
+    "shoe store": "./img/Community_Services/Shoe store.png", 
     "clothing store": "", 
     bookstore: "",
-  }  
+  },
+  
+  efectos: {
+    correcto: "./audios/Effects/Correct.wav",
+    incorrecto: "/audios/Effects/Incorrect.wav",
+    ended: "/audios/Effects/Ended.wav"
+  }
 };
