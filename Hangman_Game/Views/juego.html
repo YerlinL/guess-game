@@ -7,7 +7,7 @@
     <link
       rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css"/>
     <link rel="stylesheet" href="./css/estilos.css"/>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
@@ -37,19 +37,27 @@
               <div class="flip-card-back"> 
                 <div id = "pista"></div>
                 <button type="button" class="btn btn-default" id = "reproducirAudio">
-                  <i class="fas fa-volume-up" style="font-size:50px;color:#a94a50"></i>
+                  <i class="fas fa-volume-up" style="font-size:40px;color:#a94a50"></i>
                 </button>
               </div>
             </div>
           </div>
-         <div id="myModal" class="modal">
-          <div class="modal-content">
+         <div id="ventanaModal" class="modal">
+          <div class="modal-content" id = "contenido">
             <div class="modal-header">
               <h2 id = "tituloModal" style="font-weight: bold;"></h2>
             </div>
             <div class="modal-body">
               <p id = "oracion"></p>
+              <div id = "puntaje"> </div>
               <div id = "imagenPalabra"> </div>
+              <form action="index.html" style="text-align: center;">
+                <button type="submit" style=visibility:hidden; class = "btnCerrar" id ="Salir">
+                    <i 
+                        style="font-size:20px;color:#a94a50; text-align: center;">CLOSE
+                    </i>
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -66,12 +74,17 @@
         <br>
       </div>
       <div id = "audio-placeholder"></div>
-      <audio src="./audios/Effects/Correct.wav" id = "audioCorrecto"></audio>
-      <audio src="./audios/Effects/Incorrect.wav" id = "audioIncorrecto"></audio>
+      <div class = "efectos">
+        <audio src="./audios/Effects/Correct.wav" id = "audioCorrecto"></audio>
+        <audio src="./audios/Effects/Incorrect.wav" id = "audioIncorrecto"></audio>
+        <audio src="./audios/Effects/lost.wav" id = "audioPierde"></audio>
+        <audio src="./audios/Effects/winner.wav" id = "audioGana"></audio>
+      </div>
+    
 
     </form>
     
     <script type="module" src="./js/Formulario.js" defer></script>
-
+    </script>
   </body>
 </html>

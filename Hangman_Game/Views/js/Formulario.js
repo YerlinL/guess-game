@@ -9,6 +9,8 @@ const ID_AUDIO = "pistaAudio";
 const { estadosPartida, pistas, audios, efectos, oraciones, imagenes} = Constantes;
 const generadorPartidas = new GeneradorPartidas();
 let { partida, palabra } = generadorPartidas.generarPartida();
+let puntaje = 0;
+
 
 function iniciar() {
   generarAbecedario();
@@ -78,20 +80,35 @@ function adivinar() {
   const letraSeleccionada = this.innerText;
   const seMostro = tratarMostrarLetra(letraSeleccionada);
   if(seMostro){
-    const audioCorrecto = document.getElementById("audioCorrecto");
-    audioCorrecto.play();
+    reproducirAudiosEfectos("audioCorrecto");
   }else{
-    const audioIncorrecto = document.getElementById("audioIncorrecto");
-    audioIncorrecto.play();
+    reproducirAudiosEfectos("audioIncorrecto");
   }
   const { estado } = partida.actualizarEstadoDePartida(letraSeleccionada);
   if (estado === estadosPartida.gano) {
-    mostrarModal();
-    regenerarPartida();
+    puntaje=puntaje+palabra.length; 
+    indicarEstadoJuego("gano");
+    reproducirAudioGanoPerdio("audioGana");
+     
   } else if (estado === estadosPartida.perdio) {
-    mostrarModal();
+    indicarEstadoJuego("perdio");
+    reproducirAudioGanoPerdio("audioPierde");
+  }
+}
+
+function reproducirAudiosEfectos(idAudio){
+  const efecto = document.getElementById(idAudio);
+  efecto.play();
+}
+
+function reproducirAudioGanoPerdio(idAudio){
+  const efecto = document.getElementById(idAudio);
+  efecto.play();
+  efecto.onended = () => {   
+    mostrarOraciones();
     regenerarPartida();
   }
+    
 }
 
 function regenerarPartida() {
@@ -103,8 +120,6 @@ function regenerarPartida() {
   if (partida !== null) {
     crearFormulario(palabra.length);
     asignarPista(palabra);
-  } else {
-    alert("Game finished");
   }
 }
 
@@ -179,17 +194,33 @@ function generarReproducirAudioPistaCarta(palabra){
   boton.onclick = reproducirAudio;
 }
 
-function mostrarModal() {
-  let modal = document.getElementById("myModal");
-  modal.style.display = "block";
+function mostrarOraciones() {
+  cambiarClaseContenidoModal("modalInformacion","modal-content");
+  eliminarPuntajeModal();
   agregarTituloModal(palabra);
   agregarOracionModal(palabra);
   agregarImagenModal(palabra);
   reproducirAudioModal(palabra);
 }
 
+function indicarEstadoJuego(estado){
+  cambiarClaseContenidoModal("modal-content","modalInformacion");
+  mostrarModal();
+  agregarTituloModal(estado);
+  agregarOracionModal(estado);
+  agregarImagenModal(estado);
+  agregarPuntajeModal();
+  
+  
+}
+
+function mostrarModal(){
+  let modal = document.getElementById("ventanaModal");
+  modal.style.display = "block"; 
+}
+
 function cerrarModal() {
-  let modal = document.getElementById("myModal");
+  let modal = document.getElementById("ventanaModal");
   modal.style.display = "none";
 }
 
@@ -224,6 +255,9 @@ function reproducirAudioModal(palabra) {
         audioDescripcion.play();
       } else {
         cerrarModal();
+        if(partida === null){
+          finalizarJuego("finalizo");
+        }     
       }
     };
     audioOracion.play();
@@ -231,6 +265,28 @@ function reproducirAudioModal(palabra) {
   audioDescripcion.play();
 }
 
-/*Ventana modal https://www.w3schools.com/howto/howto_css_modals.asp*/
+function agregarPuntajeModal(){
+  let seccionPuntaje = document.getElementById("puntaje");
+  seccionPuntaje.innerText = "Score: " + puntaje;
+}
+
+function eliminarPuntajeModal(){
+  let seccionPuntaje = document.getElementById("puntaje");
+  seccionPuntaje.innerText = "";
+}
+
+function cambiarClaseContenidoModal(claseAnterior,claseNueva){
+  let contenido = document.getElementById("contenido");
+  contenido.classList.replace(claseAnterior,claseNueva);
+}
+
+function finalizarJuego(estado){
+
+  agregarTituloModalInformacion(estado);
+  agregarPuntajeModal();
+  let botonSalir = document.getElementById("Salir");
+  botonSalir.style.visibility = 'visible';
+  
+} 
 
 iniciar();

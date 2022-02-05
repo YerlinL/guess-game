@@ -67,6 +67,30 @@ body{
   border-color: #a94a50;
 }
 
+.btnCerrar{
+  background-color: #ff6565;
+  color: #a94a50;
+  font-family: 'Times New Roman';
+  font-weight: bold;
+  font-size: 35;
+  width: 100px;
+  height: 30px;
+  border-radius: 1.058em;
+  border-color: gray;
+}
+
+.modalInformacion{
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  border: 1px solid #888;
+  height: 300px;
+  width: 390px; /* Could be more or less, depending on screen size */
+  border-radius: 2.078em;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+}
+
 .container {
     position: relative;
     width: 50%;

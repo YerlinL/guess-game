@@ -160,6 +160,18 @@ export default {
       descripcion: "The word is bookstore",
       oracion: "The salesman sells story books in the bookstore",
     },
+    gano:{
+      descripcion: "Great",
+      oracion: "You are an excellent player",
+    },
+    perdio:{
+      descripcion: "Sorry",
+      oracion: "Good luck next time",
+    },
+    finalizo:{
+      descripcion: "Game Finished",
+      
+    }
   },
   audios: {
     baker: { 
@@ -268,9 +280,9 @@ export default {
       oracion: "./audios/Services_Sentences/Shoe_Store_S.m4a",
     },
     "clothing store": {
-      pista: "./audios/prueba.mp3",
-      descripcion: "./audios/prueba.mp3",
-      oracion: "./audios/prueba.mp3",
+      pista: "",
+      descripcion: "",
+      oracion: "",
     },
     bookstore: {
       pista: "./audios/Services_Hints/Book_store_H.m4a",
@@ -278,6 +290,7 @@ export default {
       oracion: "./audios/Services_Sentences/Book_Store_S.m4a",
     },
   },
+
   imagenes: {
     baker: "",
     butcher: "",
@@ -301,13 +314,10 @@ export default {
     butchery: "./img/Community_Services/Butchery.png",
     "hardware store": "./img/Community_Services/Hardware Store.png", 
     "shoe store": "./img/Community_Services/Shoe store.png", 
-    "clothing store": "", 
-    bookstore: "",
+    "clothing store": "./img/Community_Services/Clothing Store.png", 
+    bookstore: "./img/Community_Services/BookStore.png",
+    gano: "./img/correct.png",
+    perdio: "./img/incorrect.png",
   },
-  
-  efectos: {
-    correcto: "./audios/Effects/Correct.wav",
-    incorrecto: "/audios/Effects/Incorrect.wav",
-    ended: "/audios/Effects/Ended.wav"
-  }
+
 };
