@@ -94,6 +94,9 @@ function adivinar() {
     indicarEstadoJuego("perdio");
     reproducirAudioGanoPerdio("audioPierde");
   }
+  this.onclick = function (){
+    console.log("");
+  }
 }
 
 function reproducirAudiosEfectos(idAudio){
@@ -136,6 +139,7 @@ function habilitarBotones() {
     if (boton.className === BOTON_DESHABILIDADO) {
       boton.className = BOTON_HABILITADO;
     }
+    boton.onclick = adivinar;
   }
 }
 
