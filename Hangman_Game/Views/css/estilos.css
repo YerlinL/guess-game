@@ -6,6 +6,16 @@
     margin: auto;
     background-color: #bae0f5;
 }
+
+.cardInstrucciones {
+  text-align: center;
+  border-color: #ff6565;
+  height: 600px;
+  width: 1000px;
+  margin: auto;
+  background-color: #bae0f5;
+}
+
 body{
     text-align: center; 
     background-color: #d1eaf9;
@@ -75,9 +85,12 @@ body{
   font-size: 35;
   width: 100px;
   height: 30px;
-  border-radius: 1.058em;
+  border-radius: 1.038em;
   border-color: gray;
 }
+ a:hover{
+  color:white
+ }
 
 .modalInformacion{
   background-color: #fefefe;
@@ -130,8 +143,8 @@ body{
 
 .hiddentxt:hover ~ .hiddenimg {
     display: block;
-    position: absolute;
-    z-index: 2
+    position:fixed;
+    z-index: 3
 }
 
 .flip-card {
