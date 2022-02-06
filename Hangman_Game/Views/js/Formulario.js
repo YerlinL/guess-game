@@ -256,7 +256,7 @@ function reproducirAudioModal(palabra) {
       } else {
         cerrarModal();
         if(partida === null){
-          alert("Partida nula");
+          reproducirAudiosEfectos("finalizo");
           finalizarJuego("finalizo");
         }     
       }

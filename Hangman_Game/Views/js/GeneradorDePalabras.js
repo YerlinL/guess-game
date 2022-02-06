@@ -11,10 +11,6 @@ class GeneradorDePalabras {
         this.cantidadPalabrasParaJugar = palabrasParaJugar.length;
         this.esPalabraUsada = new Map();
         this.#inicializarEsPalabraUsada();
-        const valores = [...this.esPalabraUsada.entries()];
-        for (const valor of valores){
-            console.log(valor);
-        }
         
     }
 
