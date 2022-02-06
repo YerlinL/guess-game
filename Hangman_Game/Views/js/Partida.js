@@ -4,6 +4,9 @@ const { estadosPartida } = Constantes
 
 class Partida {
     constructor(palabra){
+        if(palabra === undefined || palabra === ""){
+            throw new Error("La palabra esta en blanco")
+        }
         this.letrasFaltantesParaGanar = Array.from(palabra).filter(letra=>letra!==" ");
         this.palabraFormada;
         this.clicsErroneosActuales = 0;

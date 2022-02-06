@@ -256,6 +256,7 @@ function reproducirAudioModal(palabra) {
       } else {
         cerrarModal();
         if(partida === null){
+          alert("Partida nula");
           finalizarJuego("finalizo");
         }     
       }
@@ -281,8 +282,9 @@ function cambiarClaseContenidoModal(claseAnterior,claseNueva){
 }
 
 function finalizarJuego(estado){
-
-  agregarTituloModalInformacion(estado);
+  cambiarClaseContenidoModal("modal-content","modalInformacion");
+  mostrarModal();
+  agregarTituloModal(estado);
   agregarPuntajeModal();
   let botonSalir = document.getElementById("Salir");
   botonSalir.style.visibility = 'visible';

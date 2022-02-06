@@ -12,7 +12,7 @@ class GeneradorPartidas{
     generarPartida(){
         const palabra = this.generadorDePalabras.elegirPalabra();
         let partida = null;
-        if(palabra!==GeneradorDePalabras.PALABRA_EN_BLANCO){
+        if(palabra!==""){
             partida = new Partida(palabra);
         }
         return { partida,palabra };
