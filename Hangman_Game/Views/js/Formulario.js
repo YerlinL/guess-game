@@ -218,6 +218,17 @@ function indicarEstadoJuego(estado){
   
 }
 
+function finalizarJuego(estado){
+  cambiarClaseContenidoModal("modal-content","modalInformacion");
+  mostrarModal();
+  limpiarTextoModal();
+  agregarTituloModal(estado);
+  agregarPuntajeModal();
+  let botonSalir = document.getElementById("Salir");
+  botonSalir.style.visibility = 'visible';
+  
+} 
+
 function mostrarModal(){
   let modal = document.getElementById("ventanaModal");
   modal.style.display = "block"; 
@@ -285,14 +296,14 @@ function cambiarClaseContenidoModal(claseAnterior,claseNueva){
   contenido.classList.replace(claseAnterior,claseNueva);
 }
 
-function finalizarJuego(estado){
-  cambiarClaseContenidoModal("modal-content","modalInformacion");
-  mostrarModal();
-  agregarTituloModal(estado);
-  agregarPuntajeModal();
-  let botonSalir = document.getElementById("Salir");
-  botonSalir.style.visibility = 'visible';
-  
-} 
+function limpiarTextoModal(){
+  let texto = document.getElementById("oracion");
+  texto.innerHTML= "";
+
+}
+
+
+
+
 
 iniciar();
