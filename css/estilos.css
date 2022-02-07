@@ -6,6 +6,7 @@
     margin: auto;
     top: -30px;
     max-width: 100%;
+    min-width: 600;
     background-color: #bae0f5;
 }
 
@@ -52,7 +53,7 @@ body{
     font-family: 'Times New Roman';
     font-weight: bold;
     font-size: 30;
-    width: 200px;
+    width: 220px;
     height: 60px;
     text-align: center;
     margin-left: 40px;
