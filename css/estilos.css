@@ -5,8 +5,6 @@
     width: 1000px;
     margin: auto;
     top: -30px;
-    max-width: 100%;
-    min-width: 600;
     background-color: #bae0f5;
 }
 
@@ -20,7 +18,6 @@ body{
     background-color: #ff6565;
     margin-top: 10px;
     margin-left: 380px;
-    max-width: 100%;
     text-align: center;
 }
 
@@ -29,7 +26,6 @@ body{
     font-family: 'Times New Roman';
     font-size: 200%;
     font-weight: bold;
-    max-width: 100%;
 }
 
 .btnPlay {
@@ -94,7 +90,6 @@ body{
   border: 1px solid #888;
   height: 300px;
   width: 390px;
-  max-width: 100%;
   border-radius: 2.078em;
   font-weight: bold;
   font-size: large;
@@ -152,7 +147,6 @@ body{
     perspective: 1000px; 
     margin-top: 10px;
     margin-left: 40%;
-    max-width: 100%;
     text-align: center;
 
   }
@@ -162,7 +156,6 @@ body{
     position: relative;
     width: 100%;
     height: 100%;
-    max-width: 100%;
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
@@ -178,7 +171,6 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
-    max-width: 100%;
     -webkit-backface-visibility: hidden; 
     backface-visibility: hidden;
   }
