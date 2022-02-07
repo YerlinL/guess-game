@@ -160,28 +160,29 @@ export default {
       descripcion: "The word is bookstore",
       oracion: "The salesman sells story books in the bookstore",
     },
-    gano:{
+    gano: {
       descripcion: "Great",
       oracion: "You are an excellent player",
     },
-    perdio:{
+    perdio: {
       descripcion: "Sorry",
       oracion: "Good luck next time",
     },
-    finalizo:{
+    finalizo: {
       descripcion: "Game Finished",
-      
-    }
+    },
   },
   audios: {
-    baker: { 
-      pista: "./audios/Helpers_Hint/Baker_H.m4a", 
+    baker: {
+      pista: "./audios/Helpers_Hint/Baker_H.m4a",
       descripcion: "./audios/Helpers_Sentences/Baker_SW.m4a",
-      oracion: "./audios/Helpers_Sentences/Baker_S.m4a" },
-    butcher: { 
-      pista: "./audios/Helpers_Hint/Butcher_H.m4a", 
+      oracion: "./audios/Helpers_Sentences/Baker_S.m4a",
+    },
+    butcher: {
+      pista: "./audios/Helpers_Hint/Butcher_H.m4a",
       descripcion: "./audios/Helpers_Sentences/Butcher_SW.m4a",
-      oracion: "./audios/Helpers_Sentences/Butcher_S.m4a" },
+      oracion: "./audios/Helpers_Sentences/Butcher_S.m4a",
+    },
     salesman: {
       pista: "./audios/Helpers_Hint/Salesman_H.m4a",
       descripcion: "./audios/Helpers_Sentences/Salesman_SW.m4a",
@@ -192,10 +193,10 @@ export default {
       descripcion: "./audios/Helpers_Sentences/Saleswoman_SW.m4a",
       oracion: "./audios/Helpers_Sentences/Saleswoman_S.m4a",
     },
-    cashier: { 
-      pista: "./audios/Helpers_Hint/Cashier_H.m4a", 
+    cashier: {
+      pista: "./audios/Helpers_Hint/Cashier_H.m4a",
       descripcion: "./audios/Helpers_Sentences/Cashier_SW.m4a",
-      oracion: "./audios/Helpers_Sentences/Cashier_S.m4a" 
+      oracion: "./audios/Helpers_Sentences/Cashier_S.m4a",
     },
     hairdresser: {
       pista: "./audios/Helpers_Hint/Hairdresser_H.m4a",
@@ -207,39 +208,41 @@ export default {
       descripcion: "./audios/Helpers_Sentences/Mechanic_SW.m4a",
       oracion: "./audios/Helpers_Sentences/Mechanic_S.m4a",
     },
-    chef: { 
-      pista: "./audios/Helpers_Hint/Chef_H.m4a", 
+    chef: {
+      pista: "./audios/Helpers_Hint/Chef_H.m4a",
       descripcion: "./audios/Helpers_Sentences/Chef_SW.m4a",
-      oracion: "./audios/Helpers_Sentences/Chef_S.m4a" 
+      oracion: "./audios/Helpers_Sentences/Chef_S.m4a",
     },
-    farmer: { 
-      pista: "./audios/Helpers_Hint/Farmer_H.m4a", 
+    farmer: {
+      pista: "./audios/Helpers_Hint/Farmer_H.m4a",
       descripcion: "./audios/Helpers_Sentences/Farmer_SW.m4a",
-      oracion: "./audios/Helpers_Sentences/Farmer_S.m4a" 
+      oracion: "./audios/Helpers_Sentences/Farmer_S.m4a",
     },
-    waiter: { 
-      pista: "./audios/Helpers_Hint/Waiter_H.m4a", 
+    waiter: {
+      pista: "./audios/Helpers_Hint/Waiter_H.m4a",
       descripcion: "./audios/Helpers_Sentences/Waiter_SW.m4a",
-      oracion: "./audios/Helpers_Sentences/Waiter_S.m4a" 
+      oracion: "./audios/Helpers_Sentences/Waiter_S.m4a",
     },
     waitress: {
       pista: "./audios/Helpers_Hint/Waitress_H.m4a",
-      descripcion:"./audios/Helpers_Sentences/Waitress_SW.m4a", 
-      oracion: "./audios/Helpers_Sentences/Waitress_S.m4a"
+      descripcion: "./audios/Helpers_Sentences/Waitress_SW.m4a",
+      oracion: "./audios/Helpers_Sentences/Waitress_S.m4a",
     },
-    bank: { 
-      pista: "./audios/Services_Hints/Bank_H.m4a", 
+    bank: {
+      pista: "./audios/Services_Hints/Bank_H.m4a",
       descripcion: "./audios/Services_Sentences/Bank_SW.m4a",
-      oracion: "./audios/Services_Sentences/Bank_S.m4a" },
-    school: { 
-      pista: "./audios/Services_Hints/School_H.m4a", 
-      descripcion: "./audios/Services_Sentences/School_SW.m4a",
-      oracion: "./audios/Services_Sentences/School_S.m4a" 
+      oracion: "./audios/Services_Sentences/Bank_S.m4a",
     },
-    church: { 
-      pista: "./audios/Services_Hints/Church_H.m4a", 
+    school: {
+      pista: "./audios/Services_Hints/School_H.m4a",
+      descripcion: "./audios/Services_Sentences/School_SW.m4a",
+      oracion: "./audios/Services_Sentences/School_S.m4a",
+    },
+    church: {
+      pista: "./audios/Services_Hints/Church_H.m4a",
       descripcion: "./audios/Services_Sentences/Church_SW.m4a",
-      oracion: "./audios/Services_Sentences/Church_S.m4a" },
+      oracion: "./audios/Services_Sentences/Church_S.m4a",
+    },
     "post office": {
       pista: "./audios/Services_Hints/Post_Office_H.m4a",
       descripcion: "./audios/Services_Sentences/Post_Office_SW.m4a",
@@ -250,10 +253,11 @@ export default {
       descripcion: "./audios/Services_Sentences/Restaurant_SW.m4a",
       oracion: "./audios/Services_Sentences/Restaurant_S.m4a",
     },
-    bakery: { 
-      pista: "./audios/Services_Hints/Bakery_H.m4a", 
+    bakery: {
+      pista: "./audios/Services_Hints/Bakery_H.m4a",
       descripcion: "./audios/Services_Sentences/Bakery_SW.m4a",
-      oracion: "./audios/Services_Sentences/Bakery_S.m4a" },
+      oracion: "./audios/Services_Sentences/Bakery_S.m4a",
+    },
     drugstore: {
       pista: "./audios/Services_Hints/Drug_Store_H.m4a",
       descripcion: "./audios/Services_Sentences/Drugstore_SW.m4a",
@@ -294,30 +298,29 @@ export default {
   imagenes: {
     baker: "",
     butcher: "",
-    salesman: "", 
-    saleswoman: "", 
-    cashier: "", 
-    hairdresser: "", 
-    mechanic: "", 
-    chef: "", 
-    farmer:"", 
-    waiter:"", 
+    salesman: "",
+    saleswoman: "",
+    cashier: "",
+    hairdresser: "",
+    mechanic: "",
+    chef: "",
+    farmer: "",
+    waiter: "",
     waitress: "",
-    bank: "./img/Community_Services/Bank.png", 
-    school: "./img/Community_Services/School.png", 
-    church: "./img/Community_Services/Church.png",
-    "post office":"./img/Community_Services/Post Office.png", 
-    restaurant: "./img/Community_Services/Restaurant.png",
-    bakery: "./img/Community_Services/Bakery.png", 
-    drugstore: "./img/Community_Services/Drug Store.png",
-    "grocery store": "./img/Community_Services/Grocery Store.png", 
-    butchery: "./img/Community_Services/Butchery.png",
-    "hardware store": "./img/Community_Services/Hardware Store.png", 
-    "shoe store": "./img/Community_Services/Shoe store.png", 
-    "clothing store": "./img/Community_Services/Clothing Store.png", 
-    bookstore: "./img/Community_Services/BookStore.png",
+    bank: "./img/Community_services/Bank.png",
+    school: "./img/Community_services/School.png",
+    church: "./img/Community_services/Church.png",
+    "post office": "./img/Community_services/Post Office.png",
+    restaurant: "./img/Community_services/Restaurant.png",
+    bakery: "./img/Community_services/Bakery.png",
+    drugstore: "./img/Community_services/Drug Store.png",
+    "grocery store": "./img/Community_services/Grocery Store.png",
+    butchery: "./img/Community_services/Butchery.png",
+    "hardware store": "./img/Community_services/Hardware Store.png",
+    "shoe store": "./img/Community_services/Shoe store.png",
+    "clothing store": "./img/Community_services/Clothing Store.png",
+    bookstore: "./img/Community_services/BookStore.png",
     gano: "./img/correct.png",
     perdio: "./img/incorrect.png",
   },
-
 };
