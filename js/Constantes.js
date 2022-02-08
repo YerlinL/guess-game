@@ -22,7 +22,6 @@ export default {
     "butchery",
     "hardware store",
     "shoe store",
-    "clothing store",
     "bookstore",
   ],
   estadosPartida: {
@@ -133,8 +132,8 @@ export default {
       oracion: "We go to the bakery to buy bread",
     },
     drugstore: {
-      descripcion: "The word is drug store",
-      oracion: "People go to the drug store to buy medicines",
+      descripcion: "The word is drugstore",
+      oracion: "People go to the drugstore to buy medicines",
     },
     "grocery store": {
       descripcion: "The word is grocery store",
