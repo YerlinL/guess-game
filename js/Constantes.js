@@ -22,6 +22,7 @@ export default {
     "butchery",
     "hardware store",
     "shoe store",
+    "clothing store",
     "bookstore",
   ],
   estadosPartida: {
@@ -283,9 +284,9 @@ export default {
       oracion: "./audios/Services_Sentences/Shoe_Store_S.m4a",
     },
     "clothing store": {
-      pista: "",
-      descripcion: "",
-      oracion: "",
+      pista: "./audios/Services_Hints/Clothing_Store_H.m4a",
+      descripcion: "./audios/Services_Sentences/Clothing_Store_SW.mp3",
+      oracion: "./audios/Services_Sentences/Clothing_Store_S.m4a",
     },
     bookstore: {
       pista: "./audios/Services_Hints/Book_store_H.m4a",
