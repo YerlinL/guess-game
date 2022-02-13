@@ -223,6 +223,7 @@ function finalizarJuego(estado){
   mostrarModal();
   limpiarTextoModal();
   agregarTituloModal(estado);
+  agregarImagenModal(estado);
   agregarPuntajeModal();
   let botonSalir = document.getElementById("Salir");
   botonSalir.style.visibility = 'visible';
