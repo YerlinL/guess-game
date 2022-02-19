@@ -219,7 +219,6 @@ function indicarEstadoJuego(estado){
 }
 
 function finalizarJuego(estado){
-  cambiarClaseContenidoModal("modal-content","modalInformacion");
   mostrarModal();
   limpiarTextoModal();
   agregarTituloModal(estado);
