@@ -322,6 +322,6 @@ export default {
     bookstore: "./img/Community_services/BookStore.png",
     gano: "./img/correct.png",
     perdio: "./img/incorrect.png",
-    finalizo: "./img/Fondo blanco.jpg"
+    finalizo: "./img/Thanks for playing.png"
   },
 };
