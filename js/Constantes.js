@@ -158,7 +158,7 @@ export default {
     },
     bookstore: {
       descripcion: "The word is bookstore.",
-      oracion: "The salesman sells story books in the bookstore.",
+      oracion: "The salesman sells storybooks in the bookstore.",
     },
     gano: {
       descripcion: "Great",
