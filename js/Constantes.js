@@ -47,7 +47,7 @@ export default {
     waiter:
       "This person is a man who brings us the menu when we go to a restaurant.",
     waitress:
-      "This person is a women who brings us the menu when we go to a restaurant.",
+      "This person is a woman who brings us the menu when we go to a restaurant.",
     bank: "In this place, people deposit their money.",
     school: "The teacher works in this place.",
     church: "In this place, people pray.",
